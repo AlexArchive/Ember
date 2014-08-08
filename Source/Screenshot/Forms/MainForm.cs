@@ -8,5 +8,10 @@ namespace Screenshot.Forms
         {
             InitializeComponent();
         }
+
+        protected override void SetVisibleCore(bool value)
+        {
+            base.SetVisibleCore(false);
+        }
     }
 }
