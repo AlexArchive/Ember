@@ -59,5 +59,10 @@ namespace Screenshot.Forms
         {
             base.SetVisibleCore(false);
         }
+
+        private void preferencesToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
