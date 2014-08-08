@@ -62,7 +62,7 @@ namespace Screenshot.Forms
 
         private void preferencesToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-
+            new SettingsForm().Show();
         }
     }
 }
