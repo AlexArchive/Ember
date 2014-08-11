@@ -31,8 +31,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.checkBoxEnableSoundEffect = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabPageGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -55,12 +57,24 @@
             // 
             // tabPageGeneral
             // 
+            this.tabPageGeneral.Controls.Add(this.checkBoxEnableSoundEffect);
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabPageGeneral.Name = "tabPageGeneral";
             this.tabPageGeneral.Size = new System.Drawing.Size(452, 230);
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxEnableSoundEffect
+            // 
+            this.checkBoxEnableSoundEffect.AutoSize = true;
+            this.checkBoxEnableSoundEffect.Location = new System.Drawing.Point(17, 15);
+            this.checkBoxEnableSoundEffect.Name = "checkBoxEnableSoundEffect";
+            this.checkBoxEnableSoundEffect.Size = new System.Drawing.Size(129, 17);
+            this.checkBoxEnableSoundEffect.TabIndex = 2;
+            this.checkBoxEnableSoundEffect.Text = "Enable sound effect";
+            this.checkBoxEnableSoundEffect.UseVisualStyleBackColor = true;
+            this.checkBoxEnableSoundEffect.CheckedChanged += new System.EventHandler(this.checkBoxEnableSoundEffect_CheckedChanged);
             // 
             // SettingsForm
             // 
@@ -74,8 +88,11 @@
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SettingsForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPageGeneral.ResumeLayout(false);
+            this.tabPageGeneral.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -85,5 +102,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageGeneral;
+        private System.Windows.Forms.CheckBox checkBoxEnableSoundEffect;
     }
 }

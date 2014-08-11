@@ -37,6 +37,11 @@ namespace Screenshot.Forms
         private async void Capture(Rectangle area)
         {
             var screenshot = ScreenshotProvider.TakeScreenshot(area);
+
+            if (Settings.Default.EnableSoundEffect) {
+                // play sound effect.
+            }
+
             var screenshotBinary = ToByteArray(screenshot, ImageFormat.Png);
 
             using (var client = new ImgurClient())
