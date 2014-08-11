@@ -10,13 +10,16 @@ namespace Screenshot.Forms
             InitializeComponent();
         }
 
-        private void checkBoxEnableSoundEffect_CheckedChanged(object sender, EventArgs e)
+        private void SettingsForm_Load(object sender, EventArgs e)
         {
-            Settings.Default.EnableSoundEffect = checkBoxEnableSoundEffect.Checked;
+            checkBoxEnableSoundEffect.Checked = checkBoxEnableSoundEffect.Enabled;
+            hotkeyTextBoxRegion.Hotkey = Settings.Default.RegionHotkey;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Settings.Default.EnableSoundEffect = checkBoxEnableSoundEffect.Checked;
+            Settings.Default.RegionHotkey = hotkeyTextBoxRegion.Hotkey;
             Settings.Default.Save();
         }
     }

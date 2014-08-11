@@ -34,5 +34,17 @@ namespace Screenshot {
                 this["EnableSoundEffect"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Control, X")]
+        public global::Shortcut.Hotkey RegionHotkey {
+            get {
+                return ((global::Shortcut.Hotkey)(this["RegionHotkey"]));
+            }
+            set {
+                this["RegionHotkey"] = value;
+            }
+        }
     }
 }

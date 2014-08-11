@@ -21,7 +21,7 @@ namespace Screenshot.Forms
 
         private void InitializeHotkeyBinder()
         {
-            binder.Bind(Modifiers.Control, Keys.A).To(CaptureArea);
+            binder.Bind(Settings.Default.RegionHotkey).To(CaptureArea);
         }
 
         private void CaptureArea()
@@ -36,7 +36,7 @@ namespace Screenshot.Forms
             dialog.Dispose();
         }
 
-        private async void Capture(Rectangle area)
+        private static async void Capture(Rectangle area)
         {
             var screenshot = ScreenshotProvider.TakeScreenshot(area);
 
@@ -75,7 +75,18 @@ namespace Screenshot.Forms
 
         private void preferencesToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            new SettingsForm().Show();
+            var originalRegionHotkey = Settings.Default.RegionHotkey;
+
+            SettingsForm dialog = new SettingsForm();
+            dialog.ShowDialog();
+            
+            if (originalRegionHotkey != Settings.Default.RegionHotkey)
+            {
+                binder.Unbind(originalRegionHotkey);
+                binder.Bind(Settings.Default.RegionHotkey).To(CaptureArea);
+            }
+
+            dialog.Dispose();
         }
     }
 }

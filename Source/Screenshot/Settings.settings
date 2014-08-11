@@ -5,5 +5,8 @@
     <Setting Name="EnableSoundEffect" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="RegionHotkey" Type="Shortcut.Hotkey" Scope="User">
+      <Value Profile="(Default)">Control, X</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
