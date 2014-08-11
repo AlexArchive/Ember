@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Media;
+using Screenshot.Properties;
 using Shortcut;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -39,7 +41,7 @@ namespace Screenshot.Forms
             var screenshot = ScreenshotProvider.TakeScreenshot(area);
 
             if (Settings.Default.EnableSoundEffect) {
-                // play sound effect.
+                PlaySound(Resources.ShutterSound);
             }
 
             var screenshotBinary = ToByteArray(screenshot, ImageFormat.Png);
@@ -58,6 +60,12 @@ namespace Screenshot.Forms
                 image.Save(memoryStream, format);
                 return memoryStream.ToArray();
             }
+        }
+
+        public static void PlaySound(Stream soundStream)
+        {
+            using (var soundPlayer = new SoundPlayer(soundStream))
+                soundPlayer.Play();
         }
 
         protected override void SetVisibleCore(bool value)
