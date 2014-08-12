@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Media;
 using Screenshot.Properties;
 using Shortcut;
@@ -73,20 +74,15 @@ namespace Screenshot.Forms
             base.SetVisibleCore(false);
         }
 
-        private void preferencesToolStripMenuItem_Click(object sender, System.EventArgs e)
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var originalRegionHotkey = Settings.Default.RegionHotkey;
+            binder.Unbind(Settings.Default.RegionHotkey);
 
-            SettingsForm dialog = new SettingsForm();
+            var dialog = new SettingsForm();
             dialog.ShowDialog();
-            
-            if (originalRegionHotkey != Settings.Default.RegionHotkey)
-            {
-                binder.Unbind(originalRegionHotkey);
-                binder.Bind(Settings.Default.RegionHotkey).To(CaptureArea);
-            }
-
             dialog.Dispose();
+
+            binder.Bind(Settings.Default.RegionHotkey).To(CaptureArea);
         }
     }
 }
