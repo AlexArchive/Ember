@@ -41,16 +41,20 @@ namespace Screenshot.Forms
         {
             var screenshot = ScreenshotProvider.TakeScreenshot(area);
 
-            if (Settings.Default.EnableSoundEffect) {
+            if (Settings.Default.EnableSoundEffect) 
+            {
                 PlaySound(Resources.ShutterSound);
             }
 
-            var screenshotBinary = ToByteArray(screenshot, ImageFormat.Png);
-
-            using (var client = new ImgurClient())
+            if (Settings.Default.UploadAfterCapture)
             {
-                var imageLink = await client.UploadImageAsync(screenshotBinary);
-                Process.Start(imageLink);
+                var screenshotBinary = ToByteArray(screenshot, ImageFormat.Png);
+
+                using (var client = new ImgurClient())
+                {
+                    var imageLink = await client.UploadImageAsync(screenshotBinary);
+                    Process.Start(imageLink);
+                }
             }
         }
 

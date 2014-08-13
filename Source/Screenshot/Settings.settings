@@ -3,10 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="EnableSoundEffect" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="RegionHotkey" Type="Shortcut.Hotkey" Scope="User">
       <Value Profile="(Default)">Control, X</Value>
+    </Setting>
+    <Setting Name="UploadAfterCapture" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -35,10 +35,13 @@
             this.tabPageShortcut = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.hotkeyTextBoxRegion = new Shortcut.Forms.HotkeyTextBox();
+            this.tabPageHosting = new System.Windows.Forms.TabPage();
+            this.checkBoxUploadAfterCapture = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.tabPageShortcut.SuspendLayout();
+            this.tabPageHosting.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -54,6 +57,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPageGeneral);
             this.tabControl1.Controls.Add(this.tabPageShortcut);
+            this.tabControl1.Controls.Add(this.tabPageHosting);
             this.tabControl1.Location = new System.Drawing.Point(12, 94);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -112,6 +116,26 @@
             this.hotkeyTextBoxRegion.TabIndex = 0;
             this.hotkeyTextBoxRegion.Text = "None";
             // 
+            // tabPageHosting
+            // 
+            this.tabPageHosting.Controls.Add(this.checkBoxUploadAfterCapture);
+            this.tabPageHosting.Location = new System.Drawing.Point(4, 22);
+            this.tabPageHosting.Name = "tabPageHosting";
+            this.tabPageHosting.Size = new System.Drawing.Size(452, 230);
+            this.tabPageHosting.TabIndex = 2;
+            this.tabPageHosting.Text = "Hosting";
+            this.tabPageHosting.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxUploadAfterCapture
+            // 
+            this.checkBoxUploadAfterCapture.AutoSize = true;
+            this.checkBoxUploadAfterCapture.Location = new System.Drawing.Point(17, 15);
+            this.checkBoxUploadAfterCapture.Name = "checkBoxUploadAfterCapture";
+            this.checkBoxUploadAfterCapture.Size = new System.Drawing.Size(133, 17);
+            this.checkBoxUploadAfterCapture.TabIndex = 3;
+            this.checkBoxUploadAfterCapture.Text = "Upload after capture";
+            this.checkBoxUploadAfterCapture.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,6 +156,8 @@
             this.tabPageGeneral.PerformLayout();
             this.tabPageShortcut.ResumeLayout(false);
             this.tabPageShortcut.PerformLayout();
+            this.tabPageHosting.ResumeLayout(false);
+            this.tabPageHosting.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -145,5 +171,7 @@
         private System.Windows.Forms.TabPage tabPageShortcut;
         private System.Windows.Forms.Label label1;
         private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxRegion;
+        private System.Windows.Forms.TabPage tabPageHosting;
+        private System.Windows.Forms.CheckBox checkBoxUploadAfterCapture;
     }
 }

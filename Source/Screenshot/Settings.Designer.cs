@@ -25,7 +25,7 @@ namespace Screenshot {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool EnableSoundEffect {
             get {
                 return ((bool)(this["EnableSoundEffect"]));
@@ -44,6 +44,18 @@ namespace Screenshot {
             }
             set {
                 this["RegionHotkey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UploadAfterCapture {
+            get {
+                return ((bool)(this["UploadAfterCapture"]));
+            }
+            set {
+                this["UploadAfterCapture"] = value;
             }
         }
     }
