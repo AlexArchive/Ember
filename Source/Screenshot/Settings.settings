@@ -5,7 +5,7 @@
     <Setting Name="EnableSoundEffect" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="RegionHotkey" Type="Shortcut.Hotkey" Scope="User">
+    <Setting Name="CaptureAreaHotkey" Type="Shortcut.Hotkey" Scope="User">
       <Value Profile="(Default)">Control, X</Value>
     </Setting>
     <Setting Name="UploadAfterCapture" Type="System.Boolean" Scope="User">
@@ -16,6 +16,9 @@
     </Setting>
     <Setting Name="OnUploadOpenImageInBrowser" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CaptureFullscreenHotkey" Type="Shortcut.Hotkey" Scope="User">
+      <Value Profile="(Default)">Control, Z</Value>
     </Setting>
   </Settings>
 </SettingsFile>

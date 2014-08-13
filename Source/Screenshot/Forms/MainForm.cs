@@ -22,10 +22,11 @@ namespace Screenshot.Forms
 
         private void InitializeHotkeyBinder()
         {
-            binder.Bind(Settings.Default.RegionHotkey).To(CaptureArea);
+            binder.Bind(Settings.Default.CaptureAreaHotkey).To(CaptureArea);
+            binder.Bind(Settings.Default.CaptureFullscreenHotkey).To(CaptureFullscreen);
         }
 
-        private void CaptureArea()
+        private static void CaptureArea()
         {
             var dialog = new SelectAreaDialog();
 
@@ -35,6 +36,11 @@ namespace Screenshot.Forms
             }
 
             dialog.Dispose();
+        }
+
+        private static void CaptureFullscreen()
+        {
+            Capture(Screen.PrimaryScreen.Bounds);
         }
 
         private static async void Capture(Rectangle area)
@@ -88,13 +94,14 @@ namespace Screenshot.Forms
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            binder.Unbind(Settings.Default.RegionHotkey);
+            binder.Unbind(Settings.Default.CaptureAreaHotkey);
+            binder.Unbind(Settings.Default.CaptureFullscreenHotkey);
 
             var dialog = new SettingsForm();
             dialog.ShowDialog();
             dialog.Dispose();
 
-            binder.Bind(Settings.Default.RegionHotkey).To(CaptureArea);
+            InitializeHotkeyBinder();
         }
     }
 }

@@ -34,11 +34,13 @@
             this.checkBoxEnableSoundEffect = new System.Windows.Forms.CheckBox();
             this.tabPageShortcut = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.hotkeyTextBoxRegion = new Shortcut.Forms.HotkeyTextBox();
+            this.hotkeyTextBoxCaptureArea = new Shortcut.Forms.HotkeyTextBox();
             this.tabPageHosting = new System.Windows.Forms.TabPage();
+            this.radioButtonOpenImageInBrowser = new System.Windows.Forms.RadioButton();
             this.radioButtonCopyLinkToClipboard = new System.Windows.Forms.RadioButton();
             this.checkBoxUploadAfterCapture = new System.Windows.Forms.CheckBox();
-            this.radioButtonOpenImageInBrowser = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.hotkeyTextBoxCaptureFullscreen = new Shortcut.Forms.HotkeyTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -88,8 +90,10 @@
             // 
             // tabPageShortcut
             // 
+            this.tabPageShortcut.Controls.Add(this.label2);
+            this.tabPageShortcut.Controls.Add(this.hotkeyTextBoxCaptureFullscreen);
             this.tabPageShortcut.Controls.Add(this.label1);
-            this.tabPageShortcut.Controls.Add(this.hotkeyTextBoxRegion);
+            this.tabPageShortcut.Controls.Add(this.hotkeyTextBoxCaptureArea);
             this.tabPageShortcut.Location = new System.Drawing.Point(4, 22);
             this.tabPageShortcut.Name = "tabPageShortcut";
             this.tabPageShortcut.Padding = new System.Windows.Forms.Padding(3);
@@ -101,22 +105,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.Size = new System.Drawing.Size(87, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Region hotkey:";
+            this.label1.Text = "Capture area:";
             // 
-            // hotkeyTextBoxRegion
+            // hotkeyTextBoxCaptureArea
             // 
-            this.hotkeyTextBoxRegion.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.hotkeyTextBoxRegion.Hotkey = null;
-            this.hotkeyTextBoxRegion.Location = new System.Drawing.Point(20, 31);
-            this.hotkeyTextBoxRegion.Name = "hotkeyTextBoxRegion";
-            this.hotkeyTextBoxRegion.Size = new System.Drawing.Size(199, 22);
-            this.hotkeyTextBoxRegion.TabIndex = 0;
-            this.hotkeyTextBoxRegion.Text = "None";
+            this.hotkeyTextBoxCaptureArea.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotkeyTextBoxCaptureArea.Hotkey = null;
+            this.hotkeyTextBoxCaptureArea.Location = new System.Drawing.Point(20, 35);
+            this.hotkeyTextBoxCaptureArea.Name = "hotkeyTextBoxCaptureArea";
+            this.hotkeyTextBoxCaptureArea.Size = new System.Drawing.Size(199, 25);
+            this.hotkeyTextBoxCaptureArea.TabIndex = 0;
+            this.hotkeyTextBoxCaptureArea.Text = "None";
             // 
             // tabPageHosting
             // 
@@ -129,6 +133,17 @@
             this.tabPageHosting.TabIndex = 2;
             this.tabPageHosting.Text = "Hosting";
             this.tabPageHosting.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonOpenImageInBrowser
+            // 
+            this.radioButtonOpenImageInBrowser.AutoSize = true;
+            this.radioButtonOpenImageInBrowser.Location = new System.Drawing.Point(196, 38);
+            this.radioButtonOpenImageInBrowser.Name = "radioButtonOpenImageInBrowser";
+            this.radioButtonOpenImageInBrowser.Size = new System.Drawing.Size(146, 17);
+            this.radioButtonOpenImageInBrowser.TabIndex = 4;
+            this.radioButtonOpenImageInBrowser.TabStop = true;
+            this.radioButtonOpenImageInBrowser.Text = "Open image in browser";
+            this.radioButtonOpenImageInBrowser.UseVisualStyleBackColor = true;
             // 
             // radioButtonCopyLinkToClipboard
             // 
@@ -151,16 +166,25 @@
             this.checkBoxUploadAfterCapture.Text = "Upload after capture";
             this.checkBoxUploadAfterCapture.UseVisualStyleBackColor = true;
             // 
-            // radioButtonOpenImageInBrowser
+            // label2
             // 
-            this.radioButtonOpenImageInBrowser.AutoSize = true;
-            this.radioButtonOpenImageInBrowser.Location = new System.Drawing.Point(196, 38);
-            this.radioButtonOpenImageInBrowser.Name = "radioButtonOpenImageInBrowser";
-            this.radioButtonOpenImageInBrowser.Size = new System.Drawing.Size(146, 17);
-            this.radioButtonOpenImageInBrowser.TabIndex = 4;
-            this.radioButtonOpenImageInBrowser.TabStop = true;
-            this.radioButtonOpenImageInBrowser.Text = "Open image in browser";
-            this.radioButtonOpenImageInBrowser.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Capture Fullscreen:";
+            // 
+            // hotkeyTextBoxCaptureFullscreen
+            // 
+            this.hotkeyTextBoxCaptureFullscreen.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotkeyTextBoxCaptureFullscreen.Hotkey = null;
+            this.hotkeyTextBoxCaptureFullscreen.Location = new System.Drawing.Point(20, 93);
+            this.hotkeyTextBoxCaptureFullscreen.Name = "hotkeyTextBoxCaptureFullscreen";
+            this.hotkeyTextBoxCaptureFullscreen.Size = new System.Drawing.Size(199, 25);
+            this.hotkeyTextBoxCaptureFullscreen.TabIndex = 2;
+            this.hotkeyTextBoxCaptureFullscreen.Text = "None";
             // 
             // SettingsForm
             // 
@@ -196,10 +220,12 @@
         private System.Windows.Forms.CheckBox checkBoxEnableSoundEffect;
         private System.Windows.Forms.TabPage tabPageShortcut;
         private System.Windows.Forms.Label label1;
-        private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxRegion;
+        private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxCaptureArea;
         private System.Windows.Forms.TabPage tabPageHosting;
         private System.Windows.Forms.CheckBox checkBoxUploadAfterCapture;
         private System.Windows.Forms.RadioButton radioButtonCopyLinkToClipboard;
         private System.Windows.Forms.RadioButton radioButtonOpenImageInBrowser;
+        private System.Windows.Forms.Label label2;
+        private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxCaptureFullscreen;
     }
 }

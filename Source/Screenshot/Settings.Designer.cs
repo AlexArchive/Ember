@@ -38,12 +38,12 @@ namespace Screenshot {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Control, X")]
-        public global::Shortcut.Hotkey RegionHotkey {
+        public global::Shortcut.Hotkey CaptureAreaHotkey {
             get {
-                return ((global::Shortcut.Hotkey)(this["RegionHotkey"]));
+                return ((global::Shortcut.Hotkey)(this["CaptureAreaHotkey"]));
             }
             set {
-                this["RegionHotkey"] = value;
+                this["CaptureAreaHotkey"] = value;
             }
         }
         
@@ -80,6 +80,18 @@ namespace Screenshot {
             }
             set {
                 this["OnUploadOpenImageInBrowser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Control, Z")]
+        public global::Shortcut.Hotkey CaptureFullscreenHotkey {
+            get {
+                return ((global::Shortcut.Hotkey)(this["CaptureFullscreenHotkey"]));
+            }
+            set {
+                this["CaptureFullscreenHotkey"] = value;
             }
         }
     }
