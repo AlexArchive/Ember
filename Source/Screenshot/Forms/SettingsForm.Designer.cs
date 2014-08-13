@@ -37,6 +37,7 @@
             this.hotkeyTextBoxRegion = new Shortcut.Forms.HotkeyTextBox();
             this.tabPageHosting = new System.Windows.Forms.TabPage();
             this.checkBoxUploadAfterCapture = new System.Windows.Forms.CheckBox();
+            this.radioButtonCopyLinkToClipboard = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -118,6 +119,7 @@
             // 
             // tabPageHosting
             // 
+            this.tabPageHosting.Controls.Add(this.radioButtonCopyLinkToClipboard);
             this.tabPageHosting.Controls.Add(this.checkBoxUploadAfterCapture);
             this.tabPageHosting.Location = new System.Drawing.Point(4, 22);
             this.tabPageHosting.Name = "tabPageHosting";
@@ -135,6 +137,17 @@
             this.checkBoxUploadAfterCapture.TabIndex = 3;
             this.checkBoxUploadAfterCapture.Text = "Upload after capture";
             this.checkBoxUploadAfterCapture.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonCopyLinkToClipboard
+            // 
+            this.radioButtonCopyLinkToClipboard.AutoSize = true;
+            this.radioButtonCopyLinkToClipboard.Location = new System.Drawing.Point(17, 38);
+            this.radioButtonCopyLinkToClipboard.Name = "radioButtonCopyLinkToClipboard";
+            this.radioButtonCopyLinkToClipboard.Size = new System.Drawing.Size(173, 17);
+            this.radioButtonCopyLinkToClipboard.TabIndex = 2;
+            this.radioButtonCopyLinkToClipboard.TabStop = true;
+            this.radioButtonCopyLinkToClipboard.Text = "Copy image link to clipboard";
+            this.radioButtonCopyLinkToClipboard.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
@@ -173,5 +186,6 @@
         private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxRegion;
         private System.Windows.Forms.TabPage tabPageHosting;
         private System.Windows.Forms.CheckBox checkBoxUploadAfterCapture;
+        private System.Windows.Forms.RadioButton radioButtonCopyLinkToClipboard;
     }
 }

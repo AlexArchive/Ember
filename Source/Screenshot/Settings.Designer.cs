@@ -58,5 +58,17 @@ namespace Screenshot {
                 this["UploadAfterCapture"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool OnUploadCopyLinkToClipboard {
+            get {
+                return ((bool)(this["OnUploadCopyLinkToClipboard"]));
+            }
+            set {
+                this["OnUploadCopyLinkToClipboard"] = value;
+            }
+        }
     }
 }

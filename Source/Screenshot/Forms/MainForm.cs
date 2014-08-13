@@ -53,7 +53,11 @@ namespace Screenshot.Forms
                 using (var client = new ImgurClient())
                 {
                     var imageLink = await client.UploadImageAsync(screenshotBinary);
-                    Process.Start(imageLink);
+
+                    if (Settings.Default.OnUploadCopyLinkToClipboard)
+                    {
+                        Clipboard.SetText(imageLink);
+                    }
                 }
             }
         }

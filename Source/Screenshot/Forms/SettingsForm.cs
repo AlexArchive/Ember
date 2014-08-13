@@ -15,6 +15,7 @@ namespace Screenshot.Forms
             checkBoxEnableSoundEffect.Checked = Settings.Default.EnableSoundEffect;
             hotkeyTextBoxRegion.Hotkey = Settings.Default.RegionHotkey;
             checkBoxUploadAfterCapture.Checked= Settings.Default.UploadAfterCapture;
+            radioButtonCopyLinkToClipboard.Checked = Settings.Default.OnUploadCopyLinkToClipboard;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -22,6 +23,7 @@ namespace Screenshot.Forms
             Settings.Default.EnableSoundEffect = checkBoxEnableSoundEffect.Checked;
             Settings.Default.RegionHotkey = hotkeyTextBoxRegion.Hotkey;
             Settings.Default.UploadAfterCapture = checkBoxUploadAfterCapture.Checked;
+            Settings.Default.OnUploadCopyLinkToClipboard = radioButtonCopyLinkToClipboard.Checked;
             Settings.Default.Save();
         }
     }
