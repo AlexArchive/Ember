@@ -16,6 +16,7 @@ namespace Screenshot.Forms
             hotkeyTextBoxRegion.Hotkey = Settings.Default.RegionHotkey;
             checkBoxUploadAfterCapture.Checked= Settings.Default.UploadAfterCapture;
             radioButtonCopyLinkToClipboard.Checked = Settings.Default.OnUploadCopyLinkToClipboard;
+            radioButtonOpenImageInBrowser.Checked = Settings.Default.OnUploadOpenImageInBrowser;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -24,6 +25,8 @@ namespace Screenshot.Forms
             Settings.Default.RegionHotkey = hotkeyTextBoxRegion.Hotkey;
             Settings.Default.UploadAfterCapture = checkBoxUploadAfterCapture.Checked;
             Settings.Default.OnUploadCopyLinkToClipboard = radioButtonCopyLinkToClipboard.Checked;
+            Settings.Default.OnUploadOpenImageInBrowser = radioButtonOpenImageInBrowser.Checked;
+
             Settings.Default.Save();
         }
     }

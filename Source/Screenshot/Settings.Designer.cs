@@ -70,5 +70,17 @@ namespace Screenshot {
                 this["OnUploadCopyLinkToClipboard"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OnUploadOpenImageInBrowser {
+            get {
+                return ((bool)(this["OnUploadOpenImageInBrowser"]));
+            }
+            set {
+                this["OnUploadOpenImageInBrowser"] = value;
+            }
+        }
     }
 }

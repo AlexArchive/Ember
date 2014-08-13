@@ -58,6 +58,10 @@ namespace Screenshot.Forms
                     {
                         Clipboard.SetText(imageLink);
                     }
+                    else if (Settings.Default.OnUploadOpenImageInBrowser)
+                    {
+                        Process.Start(imageLink);
+                    }
                 }
             }
         }

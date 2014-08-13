@@ -36,8 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.hotkeyTextBoxRegion = new Shortcut.Forms.HotkeyTextBox();
             this.tabPageHosting = new System.Windows.Forms.TabPage();
-            this.checkBoxUploadAfterCapture = new System.Windows.Forms.CheckBox();
             this.radioButtonCopyLinkToClipboard = new System.Windows.Forms.RadioButton();
+            this.checkBoxUploadAfterCapture = new System.Windows.Forms.CheckBox();
+            this.radioButtonOpenImageInBrowser = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -119,6 +120,7 @@
             // 
             // tabPageHosting
             // 
+            this.tabPageHosting.Controls.Add(this.radioButtonOpenImageInBrowser);
             this.tabPageHosting.Controls.Add(this.radioButtonCopyLinkToClipboard);
             this.tabPageHosting.Controls.Add(this.checkBoxUploadAfterCapture);
             this.tabPageHosting.Location = new System.Drawing.Point(4, 22);
@@ -127,16 +129,6 @@
             this.tabPageHosting.TabIndex = 2;
             this.tabPageHosting.Text = "Hosting";
             this.tabPageHosting.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxUploadAfterCapture
-            // 
-            this.checkBoxUploadAfterCapture.AutoSize = true;
-            this.checkBoxUploadAfterCapture.Location = new System.Drawing.Point(17, 15);
-            this.checkBoxUploadAfterCapture.Name = "checkBoxUploadAfterCapture";
-            this.checkBoxUploadAfterCapture.Size = new System.Drawing.Size(133, 17);
-            this.checkBoxUploadAfterCapture.TabIndex = 3;
-            this.checkBoxUploadAfterCapture.Text = "Upload after capture";
-            this.checkBoxUploadAfterCapture.UseVisualStyleBackColor = true;
             // 
             // radioButtonCopyLinkToClipboard
             // 
@@ -148,6 +140,27 @@
             this.radioButtonCopyLinkToClipboard.TabStop = true;
             this.radioButtonCopyLinkToClipboard.Text = "Copy image link to clipboard";
             this.radioButtonCopyLinkToClipboard.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxUploadAfterCapture
+            // 
+            this.checkBoxUploadAfterCapture.AutoSize = true;
+            this.checkBoxUploadAfterCapture.Location = new System.Drawing.Point(17, 15);
+            this.checkBoxUploadAfterCapture.Name = "checkBoxUploadAfterCapture";
+            this.checkBoxUploadAfterCapture.Size = new System.Drawing.Size(133, 17);
+            this.checkBoxUploadAfterCapture.TabIndex = 3;
+            this.checkBoxUploadAfterCapture.Text = "Upload after capture";
+            this.checkBoxUploadAfterCapture.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonOpenImageInBrowser
+            // 
+            this.radioButtonOpenImageInBrowser.AutoSize = true;
+            this.radioButtonOpenImageInBrowser.Location = new System.Drawing.Point(196, 38);
+            this.radioButtonOpenImageInBrowser.Name = "radioButtonOpenImageInBrowser";
+            this.radioButtonOpenImageInBrowser.Size = new System.Drawing.Size(146, 17);
+            this.radioButtonOpenImageInBrowser.TabIndex = 4;
+            this.radioButtonOpenImageInBrowser.TabStop = true;
+            this.radioButtonOpenImageInBrowser.Text = "Open image in browser";
+            this.radioButtonOpenImageInBrowser.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
@@ -187,5 +200,6 @@
         private System.Windows.Forms.TabPage tabPageHosting;
         private System.Windows.Forms.CheckBox checkBoxUploadAfterCapture;
         private System.Windows.Forms.RadioButton radioButtonCopyLinkToClipboard;
+        private System.Windows.Forms.RadioButton radioButtonOpenImageInBrowser;
     }
 }
