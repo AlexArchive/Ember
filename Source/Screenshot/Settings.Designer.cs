@@ -50,12 +50,12 @@ namespace Screenshot {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool UploadAfterCapture {
+        public bool UploadImage {
             get {
-                return ((bool)(this["UploadAfterCapture"]));
+                return ((bool)(this["UploadImage"]));
             }
             set {
-                this["UploadAfterCapture"] = value;
+                this["UploadImage"] = value;
             }
         }
         
@@ -109,13 +109,13 @@ namespace Screenshot {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Setting {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SaveImage {
             get {
-                return ((string)(this["Setting"]));
+                return ((bool)(this["SaveImage"]));
             }
             set {
-                this["Setting"] = value;
+                this["SaveImage"] = value;
             }
         }
     }

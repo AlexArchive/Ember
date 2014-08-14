@@ -63,7 +63,7 @@ namespace Screenshot.Forms
                 PlaySound(Resources.ShutterSound);
             }
 
-            if (Settings.Default.UploadAfterCapture)
+            if (Settings.Default.UploadImage)
             {
                 var screenshotBinary = ToByteArray(screenshot, ImageFormat.Png);
 
@@ -79,6 +79,22 @@ namespace Screenshot.Forms
                     {
                         Process.Start(imageLink);
                     }
+                }
+            }
+
+            if (Settings.Default.SaveImage)
+            {
+                var directory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+                for (int number = 0; ; number++)
+                {
+                    var name = string.Concat("screenshot ", number, ".png");
+                    var path = Path.Combine(directory, name);
+                   
+                    if (File.Exists(path)) continue;
+
+                    screenshot.Save(path);
+                    break;
                 }
             }
         }

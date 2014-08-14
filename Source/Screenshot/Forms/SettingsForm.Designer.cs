@@ -33,6 +33,8 @@
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.checkBoxEnableSoundEffect = new System.Windows.Forms.CheckBox();
             this.tabPageShortcut = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.hotkeyTextBoxCaptureActiveWindow = new Shortcut.Forms.HotkeyTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.hotkeyTextBoxCaptureFullscreen = new Shortcut.Forms.HotkeyTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,14 +42,15 @@
             this.tabPageHosting = new System.Windows.Forms.TabPage();
             this.radioButtonOpenImageInBrowser = new System.Windows.Forms.RadioButton();
             this.radioButtonCopyLinkToClipboard = new System.Windows.Forms.RadioButton();
-            this.checkBoxUploadAfterCapture = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.hotkeyTextBoxCaptureActiveWindow = new Shortcut.Forms.HotkeyTextBox();
+            this.checkBoxUploadImage = new System.Windows.Forms.CheckBox();
+            this.tabPageLocal = new System.Windows.Forms.TabPage();
+            this.checkBoxSaveImage = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
             this.tabPageShortcut.SuspendLayout();
             this.tabPageHosting.SuspendLayout();
+            this.tabPageLocal.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -64,6 +67,7 @@
             this.tabControl1.Controls.Add(this.tabPageGeneral);
             this.tabControl1.Controls.Add(this.tabPageShortcut);
             this.tabControl1.Controls.Add(this.tabPageHosting);
+            this.tabControl1.Controls.Add(this.tabPageLocal);
             this.tabControl1.Location = new System.Drawing.Point(12, 94);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -105,6 +109,26 @@
             this.tabPageShortcut.TabIndex = 1;
             this.tabPageShortcut.Text = "Shortcut";
             this.tabPageShortcut.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 131);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Capture active window:";
+            // 
+            // hotkeyTextBoxCaptureActiveWindow
+            // 
+            this.hotkeyTextBoxCaptureActiveWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotkeyTextBoxCaptureActiveWindow.Hotkey = null;
+            this.hotkeyTextBoxCaptureActiveWindow.Location = new System.Drawing.Point(20, 151);
+            this.hotkeyTextBoxCaptureActiveWindow.Name = "hotkeyTextBoxCaptureActiveWindow";
+            this.hotkeyTextBoxCaptureActiveWindow.Size = new System.Drawing.Size(199, 25);
+            this.hotkeyTextBoxCaptureActiveWindow.TabIndex = 4;
+            this.hotkeyTextBoxCaptureActiveWindow.Text = "None";
             // 
             // label2
             // 
@@ -150,7 +174,7 @@
             // 
             this.tabPageHosting.Controls.Add(this.radioButtonOpenImageInBrowser);
             this.tabPageHosting.Controls.Add(this.radioButtonCopyLinkToClipboard);
-            this.tabPageHosting.Controls.Add(this.checkBoxUploadAfterCapture);
+            this.tabPageHosting.Controls.Add(this.checkBoxUploadImage);
             this.tabPageHosting.Location = new System.Drawing.Point(4, 22);
             this.tabPageHosting.Name = "tabPageHosting";
             this.tabPageHosting.Size = new System.Drawing.Size(452, 230);
@@ -180,35 +204,35 @@
             this.radioButtonCopyLinkToClipboard.Text = "Copy image link to clipboard";
             this.radioButtonCopyLinkToClipboard.UseVisualStyleBackColor = true;
             // 
-            // checkBoxUploadAfterCapture
+            // checkBoxUploadImage
             // 
-            this.checkBoxUploadAfterCapture.AutoSize = true;
-            this.checkBoxUploadAfterCapture.Location = new System.Drawing.Point(17, 15);
-            this.checkBoxUploadAfterCapture.Name = "checkBoxUploadAfterCapture";
-            this.checkBoxUploadAfterCapture.Size = new System.Drawing.Size(133, 17);
-            this.checkBoxUploadAfterCapture.TabIndex = 3;
-            this.checkBoxUploadAfterCapture.Text = "Upload after capture";
-            this.checkBoxUploadAfterCapture.UseVisualStyleBackColor = true;
+            this.checkBoxUploadImage.AutoSize = true;
+            this.checkBoxUploadImage.Location = new System.Drawing.Point(17, 15);
+            this.checkBoxUploadImage.Name = "checkBoxUploadImage";
+            this.checkBoxUploadImage.Size = new System.Drawing.Size(98, 17);
+            this.checkBoxUploadImage.TabIndex = 3;
+            this.checkBoxUploadImage.Text = "Upload image";
+            this.checkBoxUploadImage.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // tabPageLocal
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Capture active window:";
+            this.tabPageLocal.Controls.Add(this.checkBoxSaveImage);
+            this.tabPageLocal.Location = new System.Drawing.Point(4, 22);
+            this.tabPageLocal.Name = "tabPageLocal";
+            this.tabPageLocal.Size = new System.Drawing.Size(452, 230);
+            this.tabPageLocal.TabIndex = 3;
+            this.tabPageLocal.Text = "Local";
+            this.tabPageLocal.UseVisualStyleBackColor = true;
             // 
-            // hotkeyTextBoxCaptureActiveWindow
+            // checkBoxSaveImage
             // 
-            this.hotkeyTextBoxCaptureActiveWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotkeyTextBoxCaptureActiveWindow.Hotkey = null;
-            this.hotkeyTextBoxCaptureActiveWindow.Location = new System.Drawing.Point(20, 151);
-            this.hotkeyTextBoxCaptureActiveWindow.Name = "hotkeyTextBoxCaptureActiveWindow";
-            this.hotkeyTextBoxCaptureActiveWindow.Size = new System.Drawing.Size(199, 25);
-            this.hotkeyTextBoxCaptureActiveWindow.TabIndex = 4;
-            this.hotkeyTextBoxCaptureActiveWindow.Text = "None";
+            this.checkBoxSaveImage.AutoSize = true;
+            this.checkBoxSaveImage.Location = new System.Drawing.Point(17, 15);
+            this.checkBoxSaveImage.Name = "checkBoxSaveImage";
+            this.checkBoxSaveImage.Size = new System.Drawing.Size(83, 17);
+            this.checkBoxSaveImage.TabIndex = 3;
+            this.checkBoxSaveImage.Text = "Save image";
+            this.checkBoxSaveImage.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
@@ -232,6 +256,8 @@
             this.tabPageShortcut.PerformLayout();
             this.tabPageHosting.ResumeLayout(false);
             this.tabPageHosting.PerformLayout();
+            this.tabPageLocal.ResumeLayout(false);
+            this.tabPageLocal.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -246,12 +272,14 @@
         private System.Windows.Forms.Label label1;
         private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxCaptureArea;
         private System.Windows.Forms.TabPage tabPageHosting;
-        private System.Windows.Forms.CheckBox checkBoxUploadAfterCapture;
+        private System.Windows.Forms.CheckBox checkBoxUploadImage;
         private System.Windows.Forms.RadioButton radioButtonCopyLinkToClipboard;
         private System.Windows.Forms.RadioButton radioButtonOpenImageInBrowser;
         private System.Windows.Forms.Label label2;
         private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxCaptureFullscreen;
         private System.Windows.Forms.Label label3;
         private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxCaptureActiveWindow;
+        private System.Windows.Forms.TabPage tabPageLocal;
+        private System.Windows.Forms.CheckBox checkBoxSaveImage;
     }
 }

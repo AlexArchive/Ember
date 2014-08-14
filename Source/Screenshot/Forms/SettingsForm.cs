@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Screenshot.Forms
@@ -14,22 +14,24 @@ namespace Screenshot.Forms
         {
             checkBoxEnableSoundEffect.Checked = Settings.Default.EnableSoundEffect;
             hotkeyTextBoxCaptureArea.Hotkey = Settings.Default.CaptureAreaHotkey;
-            checkBoxUploadAfterCapture.Checked= Settings.Default.UploadAfterCapture;
+            checkBoxUploadImage.Checked = Settings.Default.UploadImage;
             radioButtonCopyLinkToClipboard.Checked = Settings.Default.OnUploadCopyLinkToClipboard;
             radioButtonOpenImageInBrowser.Checked = Settings.Default.OnUploadOpenImageInBrowser;
             hotkeyTextBoxCaptureFullscreen.Hotkey = Settings.Default.CaptureFullscreenHotkey;
             hotkeyTextBoxCaptureActiveWindow.Hotkey = Settings.Default.CaptureActiveWindowHotkey;
+            checkBoxSaveImage.Checked = Settings.Default.SaveImage;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Settings.Default.EnableSoundEffect = checkBoxEnableSoundEffect.Checked;
             Settings.Default.CaptureAreaHotkey = hotkeyTextBoxCaptureArea.Hotkey;
-            Settings.Default.UploadAfterCapture = checkBoxUploadAfterCapture.Checked;
+            Settings.Default.UploadImage = checkBoxUploadImage.Checked;
             Settings.Default.OnUploadCopyLinkToClipboard = radioButtonCopyLinkToClipboard.Checked;
             Settings.Default.OnUploadOpenImageInBrowser = radioButtonOpenImageInBrowser.Checked;
             Settings.Default.CaptureFullscreenHotkey = hotkeyTextBoxCaptureFullscreen.Hotkey;
             Settings.Default.CaptureActiveWindowHotkey = hotkeyTextBoxCaptureActiveWindow.Hotkey;
+            Settings.Default.SaveImage = checkBoxSaveImage.Checked;
 
             Settings.Default.Save();
         }

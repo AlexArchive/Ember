@@ -8,7 +8,7 @@
     <Setting Name="CaptureAreaHotkey" Type="Shortcut.Hotkey" Scope="User">
       <Value Profile="(Default)">Control, D1</Value>
     </Setting>
-    <Setting Name="UploadAfterCapture" Type="System.Boolean" Scope="User">
+    <Setting Name="UploadImage" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="OnUploadCopyLinkToClipboard" Type="System.Boolean" Scope="User">
@@ -23,8 +23,8 @@
     <Setting Name="CaptureActiveWindowHotkey" Type="Shortcut.Hotkey" Scope="User">
       <Value Profile="(Default)">Control, D3</Value>
     </Setting>
-    <Setting Name="Setting" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="SaveImage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
