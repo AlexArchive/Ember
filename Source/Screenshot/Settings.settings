@@ -6,7 +6,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="CaptureAreaHotkey" Type="Shortcut.Hotkey" Scope="User">
-      <Value Profile="(Default)">Control, X</Value>
+      <Value Profile="(Default)">Control, D1</Value>
     </Setting>
     <Setting Name="UploadAfterCapture" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -18,7 +18,13 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="CaptureFullscreenHotkey" Type="Shortcut.Hotkey" Scope="User">
-      <Value Profile="(Default)">Control, Z</Value>
+      <Value Profile="(Default)">Control, D2</Value>
+    </Setting>
+    <Setting Name="CaptureActiveWindowHotkey" Type="Shortcut.Hotkey" Scope="User">
+      <Value Profile="(Default)">Control, D3</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

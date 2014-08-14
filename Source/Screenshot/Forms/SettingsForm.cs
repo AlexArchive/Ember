@@ -18,6 +18,7 @@ namespace Screenshot.Forms
             radioButtonCopyLinkToClipboard.Checked = Settings.Default.OnUploadCopyLinkToClipboard;
             radioButtonOpenImageInBrowser.Checked = Settings.Default.OnUploadOpenImageInBrowser;
             hotkeyTextBoxCaptureFullscreen.Hotkey = Settings.Default.CaptureFullscreenHotkey;
+            hotkeyTextBoxCaptureActiveWindow.Hotkey = Settings.Default.CaptureActiveWindowHotkey;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -28,6 +29,7 @@ namespace Screenshot.Forms
             Settings.Default.OnUploadCopyLinkToClipboard = radioButtonCopyLinkToClipboard.Checked;
             Settings.Default.OnUploadOpenImageInBrowser = radioButtonOpenImageInBrowser.Checked;
             Settings.Default.CaptureFullscreenHotkey = hotkeyTextBoxCaptureFullscreen.Hotkey;
+            Settings.Default.CaptureActiveWindowHotkey = hotkeyTextBoxCaptureActiveWindow.Hotkey;
 
             Settings.Default.Save();
         }

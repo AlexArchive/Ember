@@ -33,14 +33,16 @@
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
             this.checkBoxEnableSoundEffect = new System.Windows.Forms.CheckBox();
             this.tabPageShortcut = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.hotkeyTextBoxCaptureFullscreen = new Shortcut.Forms.HotkeyTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.hotkeyTextBoxCaptureArea = new Shortcut.Forms.HotkeyTextBox();
             this.tabPageHosting = new System.Windows.Forms.TabPage();
             this.radioButtonOpenImageInBrowser = new System.Windows.Forms.RadioButton();
             this.radioButtonCopyLinkToClipboard = new System.Windows.Forms.RadioButton();
             this.checkBoxUploadAfterCapture = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.hotkeyTextBoxCaptureFullscreen = new Shortcut.Forms.HotkeyTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.hotkeyTextBoxCaptureActiveWindow = new Shortcut.Forms.HotkeyTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -90,6 +92,8 @@
             // 
             // tabPageShortcut
             // 
+            this.tabPageShortcut.Controls.Add(this.label3);
+            this.tabPageShortcut.Controls.Add(this.hotkeyTextBoxCaptureActiveWindow);
             this.tabPageShortcut.Controls.Add(this.label2);
             this.tabPageShortcut.Controls.Add(this.hotkeyTextBoxCaptureFullscreen);
             this.tabPageShortcut.Controls.Add(this.label1);
@@ -101,6 +105,26 @@
             this.tabPageShortcut.TabIndex = 1;
             this.tabPageShortcut.Text = "Shortcut";
             this.tabPageShortcut.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Capture Fullscreen:";
+            // 
+            // hotkeyTextBoxCaptureFullscreen
+            // 
+            this.hotkeyTextBoxCaptureFullscreen.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotkeyTextBoxCaptureFullscreen.Hotkey = null;
+            this.hotkeyTextBoxCaptureFullscreen.Location = new System.Drawing.Point(20, 93);
+            this.hotkeyTextBoxCaptureFullscreen.Name = "hotkeyTextBoxCaptureFullscreen";
+            this.hotkeyTextBoxCaptureFullscreen.Size = new System.Drawing.Size(199, 25);
+            this.hotkeyTextBoxCaptureFullscreen.TabIndex = 2;
+            this.hotkeyTextBoxCaptureFullscreen.Text = "None";
             // 
             // label1
             // 
@@ -166,25 +190,25 @@
             this.checkBoxUploadAfterCapture.Text = "Upload after capture";
             this.checkBoxUploadAfterCapture.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // label3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Capture Fullscreen:";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 131);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Capture active window:";
             // 
-            // hotkeyTextBoxCaptureFullscreen
+            // hotkeyTextBoxCaptureActiveWindow
             // 
-            this.hotkeyTextBoxCaptureFullscreen.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hotkeyTextBoxCaptureFullscreen.Hotkey = null;
-            this.hotkeyTextBoxCaptureFullscreen.Location = new System.Drawing.Point(20, 93);
-            this.hotkeyTextBoxCaptureFullscreen.Name = "hotkeyTextBoxCaptureFullscreen";
-            this.hotkeyTextBoxCaptureFullscreen.Size = new System.Drawing.Size(199, 25);
-            this.hotkeyTextBoxCaptureFullscreen.TabIndex = 2;
-            this.hotkeyTextBoxCaptureFullscreen.Text = "None";
+            this.hotkeyTextBoxCaptureActiveWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hotkeyTextBoxCaptureActiveWindow.Hotkey = null;
+            this.hotkeyTextBoxCaptureActiveWindow.Location = new System.Drawing.Point(20, 151);
+            this.hotkeyTextBoxCaptureActiveWindow.Name = "hotkeyTextBoxCaptureActiveWindow";
+            this.hotkeyTextBoxCaptureActiveWindow.Size = new System.Drawing.Size(199, 25);
+            this.hotkeyTextBoxCaptureActiveWindow.TabIndex = 4;
+            this.hotkeyTextBoxCaptureActiveWindow.Text = "None";
             // 
             // SettingsForm
             // 
@@ -227,5 +251,7 @@
         private System.Windows.Forms.RadioButton radioButtonOpenImageInBrowser;
         private System.Windows.Forms.Label label2;
         private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxCaptureFullscreen;
+        private System.Windows.Forms.Label label3;
+        private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxCaptureActiveWindow;
     }
 }

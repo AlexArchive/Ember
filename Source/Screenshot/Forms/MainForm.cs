@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Media;
 using Screenshot.Properties;
+using Screenshot.Windows;
 using Shortcut;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -24,6 +25,7 @@ namespace Screenshot.Forms
         {
             binder.Bind(Settings.Default.CaptureAreaHotkey).To(CaptureArea);
             binder.Bind(Settings.Default.CaptureFullscreenHotkey).To(CaptureFullscreen);
+            binder.Bind(Settings.Default.CaptureActiveWindowHotkey).To(CaptureActiveWindow);
         }
 
         private static void CaptureArea()
@@ -43,11 +45,20 @@ namespace Screenshot.Forms
             Capture(Screen.PrimaryScreen.Bounds);
         }
 
+        private static void CaptureActiveWindow()
+        {
+            var handle = NativeMethods.GetForegroundWindow();
+            NativeRectangle rectangle;
+            NativeMethods.GetWindowRect(handle, out rectangle);
+            var area = rectangle.ToRectangle();
+            Capture(area);
+        }
+
         private static async void Capture(Rectangle area)
         {
             var screenshot = ScreenshotProvider.TakeScreenshot(area);
 
-            if (Settings.Default.EnableSoundEffect) 
+            if (Settings.Default.EnableSoundEffect)
             {
                 PlaySound(Resources.ShutterSound);
             }
@@ -74,7 +85,7 @@ namespace Screenshot.Forms
 
         public static byte[] ToByteArray(Image image, ImageFormat format)
         {
-            using(var memoryStream = new MemoryStream())
+            using (var memoryStream = new MemoryStream())
             {
                 image.Save(memoryStream, format);
                 return memoryStream.ToArray();
@@ -96,6 +107,7 @@ namespace Screenshot.Forms
         {
             binder.Unbind(Settings.Default.CaptureAreaHotkey);
             binder.Unbind(Settings.Default.CaptureFullscreenHotkey);
+            binder.Unbind(Settings.Default.CaptureActiveWindowHotkey);
 
             var dialog = new SettingsForm();
             dialog.ShowDialog();

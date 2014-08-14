@@ -37,7 +37,7 @@ namespace Screenshot {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Control, X")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Control, D1")]
         public global::Shortcut.Hotkey CaptureAreaHotkey {
             get {
                 return ((global::Shortcut.Hotkey)(this["CaptureAreaHotkey"]));
@@ -85,13 +85,37 @@ namespace Screenshot {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Control, Z")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Control, D2")]
         public global::Shortcut.Hotkey CaptureFullscreenHotkey {
             get {
                 return ((global::Shortcut.Hotkey)(this["CaptureFullscreenHotkey"]));
             }
             set {
                 this["CaptureFullscreenHotkey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Control, D3")]
+        public global::Shortcut.Hotkey CaptureActiveWindowHotkey {
+            get {
+                return ((global::Shortcut.Hotkey)(this["CaptureActiveWindowHotkey"]));
+            }
+            set {
+                this["CaptureActiveWindowHotkey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting {
+            get {
+                return ((string)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
             }
         }
     }

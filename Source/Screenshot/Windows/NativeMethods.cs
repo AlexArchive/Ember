@@ -44,5 +44,27 @@ namespace Screenshot.Windows
             int sourceX,
             int sourceY,
             CopyPixelOperation rasterOperation);
+
+
+        [DllImport("user32.dll")]
+        internal static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        internal static extern bool GetWindowRect(IntPtr windowHandle, out NativeRectangle rectangle);
+
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    internal struct NativeRectangle
+    {
+        internal int Left;
+        internal int Top;
+        internal int Right;
+        internal int Bottom;
+
+        internal Rectangle ToRectangle()
+        {
+            return new Rectangle(Left, Top, Right - Left, Bottom - Top);
+        }
     }
 }
