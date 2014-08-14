@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
@@ -81,7 +82,7 @@
             this.tabPageGeneral.Name = "tabPageGeneral";
             this.tabPageGeneral.Size = new System.Drawing.Size(452, 230);
             this.tabPageGeneral.TabIndex = 0;
-            this.tabPageGeneral.Text = "General";
+            this.tabPageGeneral.Text = "   GENERAL   ";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
             // 
             // checkBoxEnableSoundEffect
@@ -107,7 +108,7 @@
             this.tabPageShortcut.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageShortcut.Size = new System.Drawing.Size(452, 230);
             this.tabPageShortcut.TabIndex = 1;
-            this.tabPageShortcut.Text = "Shortcut";
+            this.tabPageShortcut.Text = "   HOTKEY   ";
             this.tabPageShortcut.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -179,7 +180,7 @@
             this.tabPageHosting.Name = "tabPageHosting";
             this.tabPageHosting.Size = new System.Drawing.Size(452, 230);
             this.tabPageHosting.TabIndex = 2;
-            this.tabPageHosting.Text = "Hosting";
+            this.tabPageHosting.Text = "   HOSTING    ";
             this.tabPageHosting.UseVisualStyleBackColor = true;
             // 
             // radioButtonOpenImageInBrowser
@@ -221,7 +222,7 @@
             this.tabPageLocal.Name = "tabPageLocal";
             this.tabPageLocal.Size = new System.Drawing.Size(452, 230);
             this.tabPageLocal.TabIndex = 3;
-            this.tabPageLocal.Text = "Local";
+            this.tabPageLocal.Text = "   LOCAL   ";
             this.tabPageLocal.UseVisualStyleBackColor = true;
             // 
             // checkBoxSaveImage
@@ -243,6 +244,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
