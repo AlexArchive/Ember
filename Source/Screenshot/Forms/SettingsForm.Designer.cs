@@ -41,10 +41,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.hotkeyTextBoxCaptureArea = new Shortcut.Forms.HotkeyTextBox();
             this.tabPageHosting = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBoxUploadFormat = new System.Windows.Forms.ComboBox();
             this.radioButtonOpenImageInBrowser = new System.Windows.Forms.RadioButton();
             this.radioButtonCopyLinkToClipboard = new System.Windows.Forms.RadioButton();
             this.checkBoxUploadImage = new System.Windows.Forms.CheckBox();
             this.tabPageLocal = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxSaveFormat = new System.Windows.Forms.ComboBox();
             this.checkBoxSaveImage = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -173,6 +177,8 @@
             // 
             // tabPageHosting
             // 
+            this.tabPageHosting.Controls.Add(this.label4);
+            this.tabPageHosting.Controls.Add(this.comboBoxUploadFormat);
             this.tabPageHosting.Controls.Add(this.radioButtonOpenImageInBrowser);
             this.tabPageHosting.Controls.Add(this.radioButtonCopyLinkToClipboard);
             this.tabPageHosting.Controls.Add(this.checkBoxUploadImage);
@@ -182,6 +188,28 @@
             this.tabPageHosting.TabIndex = 2;
             this.tabPageHosting.Text = "   HOSTING    ";
             this.tabPageHosting.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Format: ";
+            // 
+            // comboBoxUploadFormat
+            // 
+            this.comboBoxUploadFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUploadFormat.FormattingEnabled = true;
+            this.comboBoxUploadFormat.Items.AddRange(new object[] {
+            "Gif",
+            "Jpeg",
+            "Png"});
+            this.comboBoxUploadFormat.Location = new System.Drawing.Point(64, 67);
+            this.comboBoxUploadFormat.Name = "comboBoxUploadFormat";
+            this.comboBoxUploadFormat.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxUploadFormat.TabIndex = 5;
             // 
             // radioButtonOpenImageInBrowser
             // 
@@ -217,6 +245,8 @@
             // 
             // tabPageLocal
             // 
+            this.tabPageLocal.Controls.Add(this.label5);
+            this.tabPageLocal.Controls.Add(this.comboBoxSaveFormat);
             this.tabPageLocal.Controls.Add(this.checkBoxSaveImage);
             this.tabPageLocal.Location = new System.Drawing.Point(4, 22);
             this.tabPageLocal.Name = "tabPageLocal";
@@ -224,6 +254,29 @@
             this.tabPageLocal.TabIndex = 3;
             this.tabPageLocal.Text = "   LOCAL   ";
             this.tabPageLocal.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Format: ";
+            // 
+            // comboBoxSaveFormat
+            // 
+            this.comboBoxSaveFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSaveFormat.FormattingEnabled = true;
+            this.comboBoxSaveFormat.Items.AddRange(new object[] {
+            "Gif",
+            "Jpeg",
+            "Png",
+            "Bmp"});
+            this.comboBoxSaveFormat.Location = new System.Drawing.Point(69, 32);
+            this.comboBoxSaveFormat.Name = "comboBoxSaveFormat";
+            this.comboBoxSaveFormat.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSaveFormat.TabIndex = 7;
             // 
             // checkBoxSaveImage
             // 
@@ -283,5 +336,9 @@
         private Shortcut.Forms.HotkeyTextBox hotkeyTextBoxCaptureActiveWindow;
         private System.Windows.Forms.TabPage tabPageLocal;
         private System.Windows.Forms.CheckBox checkBoxSaveImage;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBoxUploadFormat;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxSaveFormat;
     }
 }

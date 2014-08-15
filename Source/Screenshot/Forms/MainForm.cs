@@ -65,7 +65,7 @@ namespace Screenshot.Forms
 
             if (Settings.Default.UploadImage)
             {
-                var screenshotBinary = ToByteArray(screenshot, ImageFormat.Png);
+                var screenshotBinary = ToByteArray(screenshot, Settings.Default.UploadFormat);
 
                 using (var client = new ImgurClient())
                 {
@@ -93,7 +93,7 @@ namespace Screenshot.Forms
                    
                     if (File.Exists(path)) continue;
 
-                    screenshot.Save(path);
+                    screenshot.Save(path, Settings.Default.SaveFormat);
                     break;
                 }
             }

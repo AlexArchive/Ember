@@ -26,5 +26,11 @@
     <Setting Name="SaveImage" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="UploadFormat" Type="System.Drawing.Imaging.ImageFormat" Scope="User">
+      <Value Profile="(Default)">Png</Value>
+    </Setting>
+    <Setting Name="SaveFormat" Type="System.Drawing.Imaging.ImageFormat" Scope="User">
+      <Value Profile="(Default)">Png</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

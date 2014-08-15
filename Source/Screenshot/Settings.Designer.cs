@@ -118,5 +118,29 @@ namespace Screenshot {
                 this["SaveImage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Png")]
+        public global::System.Drawing.Imaging.ImageFormat UploadFormat {
+            get {
+                return ((global::System.Drawing.Imaging.ImageFormat)(this["UploadFormat"]));
+            }
+            set {
+                this["UploadFormat"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Png")]
+        public global::System.Drawing.Imaging.ImageFormat SaveFormat {
+            get {
+                return ((global::System.Drawing.Imaging.ImageFormat)(this["SaveFormat"]));
+            }
+            set {
+                this["SaveFormat"] = value;
+            }
+        }
     }
 }
