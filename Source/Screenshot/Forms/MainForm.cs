@@ -42,7 +42,7 @@ namespace Screenshot.Forms
 
         private static void CaptureFullscreen()
         {
-            Capture(Screen.PrimaryScreen.Bounds);
+            Capture(SystemInformation.VirtualScreen);
         }
 
         private static void CaptureActiveWindow()
