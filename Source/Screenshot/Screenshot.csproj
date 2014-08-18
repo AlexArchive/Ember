@@ -70,6 +70,7 @@
     <Compile Include="Forms\SelectAreaDialog.Designer.cs">
       <DependentUpon>SelectAreaDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Installer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenshotProvider.cs" />

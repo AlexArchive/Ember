@@ -23,6 +23,7 @@ namespace Screenshot.Forms
             checkBoxSaveImage.Checked               = Settings.Default.SaveImage;
             comboBoxSaveFormat.SelectedItem         = Settings.Default.SaveFormat.ToString();
             comboBoxUploadFormat.SelectedItem       = Settings.Default.UploadFormat.ToString();
+            checkBoxStartWithWindows.Checked        = Installer.Installed;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -38,6 +39,8 @@ namespace Screenshot.Forms
             Settings.Default.UploadFormat                = Convert(comboBoxUploadFormat.SelectedItem);
             Settings.Default.SaveFormat                  = Convert(comboBoxSaveFormat.SelectedItem);
 
+            Install();
+
             Settings.Default.Save();
         }
 
@@ -51,6 +54,18 @@ namespace Screenshot.Forms
             if (selectedText == "Gif")  return ImageFormat.Gif;
 
             throw new NotSupportedException();
+        }
+
+        private void Install()
+        {
+            if (checkBoxStartWithWindows.Checked)
+            {
+                Installer.Install();
+            }
+            else
+            {
+                Installer.Uninstall();
+            }
         }
     }
 }

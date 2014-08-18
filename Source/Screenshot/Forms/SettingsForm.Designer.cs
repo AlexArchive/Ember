@@ -50,6 +50,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxSaveFormat = new System.Windows.Forms.ComboBox();
             this.checkBoxSaveImage = new System.Windows.Forms.CheckBox();
+            this.checkBoxStartWithWindows = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             // tabPageGeneral
             // 
+            this.tabPageGeneral.Controls.Add(this.checkBoxStartWithWindows);
             this.tabPageGeneral.Controls.Add(this.checkBoxEnableSoundEffect);
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabPageGeneral.Name = "tabPageGeneral";
@@ -288,6 +290,16 @@
             this.checkBoxSaveImage.Text = "Save image";
             this.checkBoxSaveImage.UseVisualStyleBackColor = true;
             // 
+            // checkBoxStartWithWindows
+            // 
+            this.checkBoxStartWithWindows.AutoSize = true;
+            this.checkBoxStartWithWindows.Location = new System.Drawing.Point(17, 38);
+            this.checkBoxStartWithWindows.Name = "checkBoxStartWithWindows";
+            this.checkBoxStartWithWindows.Size = new System.Drawing.Size(128, 17);
+            this.checkBoxStartWithWindows.TabIndex = 3;
+            this.checkBoxStartWithWindows.Text = "Start with Windows";
+            this.checkBoxStartWithWindows.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,5 +352,6 @@
         private System.Windows.Forms.ComboBox comboBoxUploadFormat;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxSaveFormat;
+        private System.Windows.Forms.CheckBox checkBoxStartWithWindows;
     }
 }
