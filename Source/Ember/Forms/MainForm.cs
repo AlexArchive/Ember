@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Media;
-using Screenshot.Properties;
-using Screenshot.Windows;
-using Shortcut;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Media;
 using System.Windows.Forms;
+using Ember.Properties;
+using Ember.Windows;
+using Shortcut;
 
-namespace Screenshot.Forms
+namespace Ember.Forms
 {
     public partial class MainForm : Form
     {

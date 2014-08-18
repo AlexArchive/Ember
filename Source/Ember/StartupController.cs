@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Screenshot
+namespace Ember
 {
     public static class StartupController
     {

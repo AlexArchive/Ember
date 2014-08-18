@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Screenshot.Forms
+namespace Ember.Forms
 {
     public sealed partial class SelectAreaDialog : Form
     {

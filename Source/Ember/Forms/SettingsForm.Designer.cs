@@ -1,4 +1,4 @@
-﻿namespace Screenshot.Forms
+﻿namespace Ember.Forms
 {
     partial class SettingsForm
     {
@@ -61,7 +61,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Screenshot.Properties.Resources.settings_banner;
+            this.pictureBox1.Image = global::Ember.Properties.Resources.settings_banner;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(484, 81);

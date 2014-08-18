@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Screenshot {
+namespace Ember {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

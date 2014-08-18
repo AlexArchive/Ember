@@ -1,4 +1,4 @@
-﻿namespace Screenshot.Forms
+﻿namespace Ember.Forms
 {
     sealed partial class SelectAreaDialog
     {

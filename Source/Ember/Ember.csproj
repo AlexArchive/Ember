@@ -7,8 +7,8 @@
     <ProjectGuid>{BE04B47B-BADC-449F-A388-8A055E1B5EE9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Screenshot</RootNamespace>
-    <AssemblyName>Screenshot</AssemblyName>
+    <RootNamespace>Ember</RootNamespace>
+    <AssemblyName>Ember</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

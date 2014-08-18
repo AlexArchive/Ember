@@ -1,8 +1,8 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
-namespace Screenshot
+namespace Ember
 {
     public class Installer
     {

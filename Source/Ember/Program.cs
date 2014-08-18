@@ -1,7 +1,7 @@
 ﻿using System;
-using Screenshot.Forms;
+using Ember.Forms;
 
-namespace Screenshot
+namespace Ember
 {
     static class Program
     {

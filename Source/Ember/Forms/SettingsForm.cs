@@ -2,7 +2,7 @@
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 
-namespace Screenshot.Forms
+namespace Ember.Forms
 {
     public partial class SettingsForm : Form
     {

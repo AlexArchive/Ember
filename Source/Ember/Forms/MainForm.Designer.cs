@@ -1,4 +1,4 @@
-﻿namespace Screenshot.Forms
+﻿namespace Ember.Forms
 {
     partial class MainForm
     {

@@ -3,14 +3,14 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
-namespace Screenshot
+namespace Ember
 {
-    public class ImgurScreenshotUploader : IScreenshotUploader
+    public class ImgurClient : IDisposable
     {
         private readonly HttpClient client;
         private const string ClientId = "771cb62f3057260";
 
-        public ImgurScreenshotUploader()
+        public ImgurClient()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("https://api.imgur.com/3/");
@@ -18,9 +18,9 @@ namespace Screenshot
                 "Authorization", "Client-ID " + ClientId);
         }
 
-        public async Task<string> Upload(byte[] screenshot)
+        public async Task<string> UploadImageAsync(byte[] imageData)
         {
-            var content = new ByteArrayContent(screenshot);
+            var content = new ByteArrayContent(imageData);
 
             var response = await client.PostAsync("image", content);
             response.EnsureSuccessStatusCode();

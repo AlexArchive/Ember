@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace Screenshot.Windows
+namespace Ember.Windows
 {
     internal static class NativeMethods
     {

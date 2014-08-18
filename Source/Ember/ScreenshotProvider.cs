@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using Screenshot.Windows;
+using Ember.Windows;
 
-namespace Screenshot
+namespace Ember
 {
     public static class ScreenshotProvider
     {
