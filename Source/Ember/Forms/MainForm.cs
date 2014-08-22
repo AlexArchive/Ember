@@ -90,11 +90,12 @@ namespace Ember.Forms
                 {
                     var name = string.Concat("screenshot ", number, ".png");
                     var path = Path.Combine(directory, name);
-                   
-                    if (File.Exists(path)) continue;
 
-                    screenshot.Save(path, Settings.Default.SaveFormat);
-                    break;
+                    if (File.Exists(path) == false)
+                    {
+                        screenshot.Save(path, Settings.Default.SaveFormat);
+                        break;
+                    }
                 }
             }
         }
