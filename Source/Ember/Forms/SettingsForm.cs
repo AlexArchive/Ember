@@ -24,6 +24,7 @@ namespace Ember.Forms
             comboBoxSaveFormat.SelectedItem         = Settings.Default.SaveFormat.ToString();
             comboBoxUploadFormat.SelectedItem       = Settings.Default.UploadFormat.ToString();
             checkBoxStartWithWindows.Checked        = Installer.Installed;
+            textBoxSaveDirectory.Text               = Settings.Default.SaveDirectory;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -38,6 +39,7 @@ namespace Ember.Forms
             Settings.Default.SaveImage                   = checkBoxSaveImage.Checked;
             Settings.Default.UploadFormat                = Convert(comboBoxUploadFormat.SelectedItem);
             Settings.Default.SaveFormat                  = Convert(comboBoxSaveFormat.SelectedItem);
+            Settings.Default.SaveDirectory               = textBoxSaveDirectory.Text;
 
             Install();
 
@@ -66,6 +68,16 @@ namespace Ember.Forms
             {
                 Installer.Uninstall();
             }
+        }
+
+        private void buttonOpenDirectory_Click(object sender, EventArgs e)
+        {
+            var dialog = new FolderBrowserDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                textBoxSaveDirectory.Text = dialog.SelectedPath;
+            }
+            dialog.Dispose();
         }
     }
 }

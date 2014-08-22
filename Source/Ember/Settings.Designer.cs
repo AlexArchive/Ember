@@ -142,5 +142,17 @@ namespace Ember {
                 this["SaveFormat"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SaveDirectory {
+            get {
+                return ((string)(this["SaveDirectory"]));
+            }
+            set {
+                this["SaveDirectory"] = value;
+            }
+        }
     }
 }

@@ -84,7 +84,7 @@ namespace Ember.Forms
 
             if (Settings.Default.SaveImage)
             {
-                var directory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                var directory = Settings.Default.SaveDirectory;
 
                 for (int number = 0; ; number++)
                 {

@@ -32,6 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.checkBoxStartWithWindows = new System.Windows.Forms.CheckBox();
             this.checkBoxEnableSoundEffect = new System.Windows.Forms.CheckBox();
             this.tabPageShortcut = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,10 +48,12 @@
             this.radioButtonCopyLinkToClipboard = new System.Windows.Forms.RadioButton();
             this.checkBoxUploadImage = new System.Windows.Forms.CheckBox();
             this.tabPageLocal = new System.Windows.Forms.TabPage();
+            this.buttonOpenDirectory = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxSaveDirectory = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxSaveFormat = new System.Windows.Forms.ComboBox();
             this.checkBoxSaveImage = new System.Windows.Forms.CheckBox();
-            this.checkBoxStartWithWindows = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -90,6 +93,16 @@
             this.tabPageGeneral.TabIndex = 0;
             this.tabPageGeneral.Text = "   GENERAL   ";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxStartWithWindows
+            // 
+            this.checkBoxStartWithWindows.AutoSize = true;
+            this.checkBoxStartWithWindows.Location = new System.Drawing.Point(17, 38);
+            this.checkBoxStartWithWindows.Name = "checkBoxStartWithWindows";
+            this.checkBoxStartWithWindows.Size = new System.Drawing.Size(128, 17);
+            this.checkBoxStartWithWindows.TabIndex = 3;
+            this.checkBoxStartWithWindows.Text = "Start with Windows";
+            this.checkBoxStartWithWindows.UseVisualStyleBackColor = true;
             // 
             // checkBoxEnableSoundEffect
             // 
@@ -247,6 +260,9 @@
             // 
             // tabPageLocal
             // 
+            this.tabPageLocal.Controls.Add(this.buttonOpenDirectory);
+            this.tabPageLocal.Controls.Add(this.label6);
+            this.tabPageLocal.Controls.Add(this.textBoxSaveDirectory);
             this.tabPageLocal.Controls.Add(this.label5);
             this.tabPageLocal.Controls.Add(this.comboBoxSaveFormat);
             this.tabPageLocal.Controls.Add(this.checkBoxSaveImage);
@@ -256,6 +272,36 @@
             this.tabPageLocal.TabIndex = 3;
             this.tabPageLocal.Text = "   LOCAL   ";
             this.tabPageLocal.UseVisualStyleBackColor = true;
+            // 
+            // buttonOpenDirectory
+            // 
+            this.buttonOpenDirectory.Location = new System.Drawing.Point(307, 94);
+            this.buttonOpenDirectory.Name = "buttonOpenDirectory";
+            this.buttonOpenDirectory.Size = new System.Drawing.Size(75, 25);
+            this.buttonOpenDirectory.TabIndex = 12;
+            this.buttonOpenDirectory.Text = "...";
+            this.buttonOpenDirectory.UseVisualStyleBackColor = true;
+            this.buttonOpenDirectory.Click += new System.EventHandler(this.buttonOpenDirectory_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(14, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 17);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Save Directory: ";
+            // 
+            // textBoxSaveDirectory
+            // 
+            this.textBoxSaveDirectory.BackColor = System.Drawing.Color.White;
+            this.textBoxSaveDirectory.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.textBoxSaveDirectory.Location = new System.Drawing.Point(17, 94);
+            this.textBoxSaveDirectory.Name = "textBoxSaveDirectory";
+            this.textBoxSaveDirectory.ReadOnly = true;
+            this.textBoxSaveDirectory.Size = new System.Drawing.Size(284, 25);
+            this.textBoxSaveDirectory.TabIndex = 9;
             // 
             // label5
             // 
@@ -289,16 +335,6 @@
             this.checkBoxSaveImage.TabIndex = 3;
             this.checkBoxSaveImage.Text = "Save image";
             this.checkBoxSaveImage.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxStartWithWindows
-            // 
-            this.checkBoxStartWithWindows.AutoSize = true;
-            this.checkBoxStartWithWindows.Location = new System.Drawing.Point(17, 38);
-            this.checkBoxStartWithWindows.Name = "checkBoxStartWithWindows";
-            this.checkBoxStartWithWindows.Size = new System.Drawing.Size(128, 17);
-            this.checkBoxStartWithWindows.TabIndex = 3;
-            this.checkBoxStartWithWindows.Text = "Start with Windows";
-            this.checkBoxStartWithWindows.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
@@ -353,5 +389,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxSaveFormat;
         private System.Windows.Forms.CheckBox checkBoxStartWithWindows;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxSaveDirectory;
+        private System.Windows.Forms.Button buttonOpenDirectory;
     }
 }

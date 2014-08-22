@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Screenshot" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Ember" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="EnableSoundEffect" Type="System.Boolean" Scope="User">
@@ -31,6 +31,9 @@
     </Setting>
     <Setting Name="SaveFormat" Type="System.Drawing.Imaging.ImageFormat" Scope="User">
       <Value Profile="(Default)">Png</Value>
+    </Setting>
+    <Setting Name="SaveDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
