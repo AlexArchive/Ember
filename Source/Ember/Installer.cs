@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.Reflection;
 using Microsoft.Win32;
 
 namespace Ember
@@ -25,7 +25,7 @@ namespace Ember
 
             using (var key = Registry.CurrentUser.OpenSubKey(Path, true))
             {
-                key.SetValue(AppDomain.CurrentDomain.FriendlyName, Application.ExecutablePath);
+                key.SetValue(AppDomain.CurrentDomain.FriendlyName, Assembly.GetEntryAssembly().Location);
             }
         }
 
