@@ -65,7 +65,7 @@ namespace Ember.Forms
 
             if (Settings.Default.UploadImage)
             {
-                var screenshotBinary = ToByteArray(screenshot, Settings.Default.UploadFormat);
+                var screenshotBinary = ConvertToByteArray(screenshot, Settings.Default.UploadFormat);
 
                 using (var client = new ImgurClient())
                 {
@@ -100,7 +100,7 @@ namespace Ember.Forms
             }
         }
 
-        public static byte[] ToByteArray(Image image, ImageFormat format)
+        public static byte[] ConvertToByteArray(Image image, ImageFormat format)
         {
             using (var memoryStream = new MemoryStream())
             {
