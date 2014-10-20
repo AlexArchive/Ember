@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DropboxClient.cs" />
+    <Compile Include="Extension\ExtensionAttribute.cs" />
     <Compile Include="Extension\ExtensionBootstrap.cs" />
     <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
@@ -58,6 +60,7 @@
     <Compile Include="Forms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IImageUploader.cs" />
     <Compile Include="ImgurClient.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>

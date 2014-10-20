@@ -2,10 +2,12 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+using Ember.Extension;
 
 namespace Ember
 {
-    public class ImgurClient : IDisposable
+    [Extension(HostName = "Imgur")]
+    public class ImgurClient : IDisposable, IImageUploader
     {
         private readonly HttpClient client;
         private const string ClientId = "771cb62f3057260";
