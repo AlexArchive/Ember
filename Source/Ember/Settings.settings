@@ -35,5 +35,8 @@
     <Setting Name="SaveDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="Host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Imgur</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

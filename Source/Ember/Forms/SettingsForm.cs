@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
+using Ember.Extension;
 
 namespace Ember.Forms
 {
     public partial class SettingsForm : Form
     {
+        private readonly ExtensionBootstrap extensionBootstrap = new ExtensionBootstrap();
+
         public SettingsForm()
         {
             InitializeComponent();
@@ -25,6 +28,8 @@ namespace Ember.Forms
             comboBoxUploadFormat.SelectedItem       = Settings.Default.UploadFormat.ToString();
             checkBoxStartWithWindows.Checked        = Installer.Installed;
             textBoxSaveDirectory.Text               = Settings.Default.SaveDirectory;
+            comboBoxHost.DataSource                 = extensionBootstrap.ExtensionNames;
+            comboBoxHost.SelectedItem               = Settings.Default.Host;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -40,6 +45,7 @@ namespace Ember.Forms
             Settings.Default.UploadFormat                = Convert(comboBoxUploadFormat.SelectedItem);
             Settings.Default.SaveFormat                  = Convert(comboBoxSaveFormat.SelectedItem);
             Settings.Default.SaveDirectory               = textBoxSaveDirectory.Text;
+            Settings.Default.Host                        = comboBoxHost.SelectedItem.ToString();
 
             Install();
 

@@ -54,6 +54,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxSaveFormat = new System.Windows.Forms.ComboBox();
             this.checkBoxSaveImage = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBoxHost = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -192,6 +194,8 @@
             // 
             // tabPageHosting
             // 
+            this.tabPageHosting.Controls.Add(this.label7);
+            this.tabPageHosting.Controls.Add(this.comboBoxHost);
             this.tabPageHosting.Controls.Add(this.label4);
             this.tabPageHosting.Controls.Add(this.comboBoxUploadFormat);
             this.tabPageHosting.Controls.Add(this.radioButtonOpenImageInBrowser);
@@ -336,6 +340,28 @@
             this.checkBoxSaveImage.Text = "Save image";
             this.checkBoxSaveImage.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 97);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Host:";
+            // 
+            // comboBoxHost
+            // 
+            this.comboBoxHost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHost.FormattingEnabled = true;
+            this.comboBoxHost.Items.AddRange(new object[] {
+            "Gif",
+            "Jpeg",
+            "Png"});
+            this.comboBoxHost.Location = new System.Drawing.Point(64, 94);
+            this.comboBoxHost.Name = "comboBoxHost";
+            this.comboBoxHost.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxHost.TabIndex = 7;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,5 +418,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxSaveDirectory;
         private System.Windows.Forms.Button buttonOpenDirectory;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBoxHost;
     }
 }
