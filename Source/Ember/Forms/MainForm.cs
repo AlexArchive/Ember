@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Media;
 using System.Windows.Forms;
+using Ember.Extension;
 using Ember.Properties;
 using Ember.Windows;
 using Shortcut;
@@ -14,6 +15,7 @@ namespace Ember.Forms
     public partial class MainForm : Form
     {
         private readonly HotkeyBinder binder = new HotkeyBinder();
+        private readonly ExtensionBootstrap extensionBootstrap = new ExtensionBootstrap();
 
         public MainForm()
         {
@@ -28,7 +30,7 @@ namespace Ember.Forms
             binder.Bind(Settings.Default.CaptureActiveWindowHotkey).To(CaptureActiveWindow);
         }
 
-        private static void CaptureArea()
+        private void CaptureArea()
         {
             var dialog = new SelectAreaDialog();
 
@@ -40,12 +42,12 @@ namespace Ember.Forms
             dialog.Dispose();
         }
 
-        private static void CaptureFullscreen()
+        private void CaptureFullscreen()
         {
             Capture(SystemInformation.VirtualScreen);
         }
 
-        private static void CaptureActiveWindow()
+        private void CaptureActiveWindow()
         {
             var handle = NativeMethods.GetForegroundWindow();
             NativeRectangle rectangle;
@@ -54,7 +56,7 @@ namespace Ember.Forms
             Capture(area);
         }
 
-        private static async void Capture(Rectangle area)
+        private async void Capture(Rectangle area)
         {
             var screenshot = ScreenshotProvider.TakeScreenshot(area);
 
@@ -66,19 +68,16 @@ namespace Ember.Forms
             if (Settings.Default.UploadImage)
             {
                 var screenshotBinary = ConvertToByteArray(screenshot, Settings.Default.UploadFormat);
+                var uploader = extensionBootstrap.ResolveExtension(Settings.Default.Host);
+                var imageLink = await uploader.UploadImageAsync(screenshotBinary);
 
-                using (var client = new ImgurClient())
+                if (Settings.Default.OnUploadCopyLinkToClipboard)
                 {
-                    var imageLink = await client.UploadImageAsync(screenshotBinary);
-
-                    if (Settings.Default.OnUploadCopyLinkToClipboard)
-                    {
-                        Clipboard.SetText(imageLink);
-                    }
-                    else if (Settings.Default.OnUploadOpenImageInBrowser)
-                    {
-                        Process.Start(imageLink);
-                    }
+                    Clipboard.SetText(imageLink);
+                }
+                else if (Settings.Default.OnUploadOpenImageInBrowser)
+                {
+                    Process.Start(imageLink);
                 }
             }
 

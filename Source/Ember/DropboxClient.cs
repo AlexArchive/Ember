@@ -1,4 +1,6 @@
-﻿using Ember.Extension;
+﻿using System.Threading.Tasks;
+using System.Windows.Forms;
+using Ember.Extension;
 
 namespace Ember
 {
@@ -6,6 +8,9 @@ namespace Ember
     [Extension(HostName = "Dropbox")]
     public class DropboxClient : IImageUploader
     {
-         
+        public async Task<string> UploadImageAsync(byte[] imageData)
+        {
+            return "http://www.dropbox.com";
+        }
     }
 }

@@ -8,11 +8,12 @@ namespace Ember.Extension
     public class ExtensionBootstrap
     {
         public IList<string> ExtensionNames { get; set; }
-
+        private readonly IDictionary<string, IImageUploader> extensionCache;
+ 
         public ExtensionBootstrap()
         {
-            var extensions = ResolveExtensions();
-            ExtensionNames = extensions.Select(extension => extension.Key).ToList();
+            extensionCache = ResolveExtensions();
+            ExtensionNames = extensionCache.Select(extension => extension.Key).ToList();
         }
 
         private IDictionary<string, IImageUploader> ResolveExtensions()
@@ -28,6 +29,11 @@ namespace Ember.Extension
                     type => (IImageUploader) Activator.CreateInstance(type));
 
             return extensions;
-        } 
+        }
+
+        public IImageUploader ResolveExtension(string hostName)
+        {
+            return extensionCache.Single(extension => extension.Key == hostName).Value;
+        }
     }
 }
