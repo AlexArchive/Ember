@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DropboxClient.cs" />
     <Compile Include="Extension\ExtensionAttribute.cs" />
     <Compile Include="Extension\ExtensionBootstrap.cs" />
     <Compile Include="Forms\SettingsForm.cs">

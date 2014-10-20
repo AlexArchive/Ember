@@ -56,7 +56,7 @@ namespace Ember.Forms
             Capture(area);
         }
 
-        private async void Capture(Rectangle area)
+        private new async void Capture(Rectangle area)
         {
             var screenshot = ScreenshotProvider.TakeScreenshot(area);
 

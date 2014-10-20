@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace Ember.Extension
 {
@@ -9,7 +11,7 @@ namespace Ember.Extension
     {
         public IList<string> ExtensionNames { get; set; }
         private readonly IDictionary<string, IImageUploader> extensionCache;
- 
+
         public ExtensionBootstrap()
         {
             extensionCache = ResolveExtensions();
@@ -18,15 +20,15 @@ namespace Ember.Extension
 
         private IDictionary<string, IImageUploader> ResolveExtensions()
         {
-            var assembly = Assembly.GetExecutingAssembly();
+            var assemblies = LoadAssemblies();
 
-            var extensions = assembly
-                .GetTypes()
-                .Where(type => type.GetInterfaces().Contains(typeof (IImageUploader)))
-                .Where(type => type.GetCustomAttributes(typeof (ExtensionAttribute)).Any())
+            var extensions = assemblies
+                .SelectMany(assembly => assembly.GetTypes())
+                .Where(type => type.GetInterfaces().Contains(typeof(IImageUploader)))
+                .Where(type => type.GetCustomAttributes(typeof(ExtensionAttribute)).Any())
                 .ToDictionary(
-                    type => ((ExtensionAttribute) type.GetCustomAttributes().First()).HostName,
-                    type => (IImageUploader) Activator.CreateInstance(type));
+                    type => ((ExtensionAttribute)type.GetCustomAttributes().First()).HostName,
+                    type => (IImageUploader)Activator.CreateInstance(type));
 
             return extensions;
         }
@@ -34,6 +36,16 @@ namespace Ember.Extension
         public IImageUploader ResolveExtension(string hostName)
         {
             return extensionCache.Single(extension => extension.Key == hostName).Value;
+        }
+
+        private static IEnumerable<Assembly> LoadAssemblies()
+        {
+            var extensionDirectory = Application.StartupPath;
+            foreach (var assembly in Directory.GetFiles(extensionDirectory, "*.dll"))
+            {
+                yield return Assembly.LoadFile(assembly);
+            }
+            yield return Assembly.GetExecutingAssembly();
         }
     }
 }
