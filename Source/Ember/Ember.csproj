@@ -51,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extension\ExtensionAttribute.cs" />
     <Compile Include="Extension\ExtensionBootstrap.cs" />
     <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
@@ -126,6 +125,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\shutter_sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ember.Extension\Ember.Extension.csproj">
+      <Project>{c60ad887-8dfa-4be7-836d-8eebbeaa56ae}</Project>
+      <Name>Ember.Extension</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

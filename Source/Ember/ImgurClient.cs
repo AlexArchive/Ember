@@ -6,7 +6,7 @@ using Ember.Extension;
 
 namespace Ember
 {
-    [Extension(HostName = "Imgur")]
+    [Extension(ExtensionName = "Imgur")]
     public class ImgurClient : IDisposable, IImageUploader
     {
         private readonly HttpClient client;

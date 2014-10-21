@@ -27,15 +27,15 @@ namespace Ember.Extension
                 .Where(type => type.GetInterfaces().Contains(typeof(IImageUploader)))
                 .Where(type => type.GetCustomAttributes(typeof(ExtensionAttribute)).Any())
                 .ToDictionary(
-                    type => ((ExtensionAttribute)type.GetCustomAttributes().First()).HostName,
+                    type => ((ExtensionAttribute)type.GetCustomAttributes().First()).ExtensionName,
                     type => (IImageUploader)Activator.CreateInstance(type));
 
             return extensions;
         }
 
-        public IImageUploader ResolveExtension(string hostName)
+        public IImageUploader ResolveExtension(string extensionName)
         {
-            return extensionCache.Single(extension => extension.Key == hostName).Value;
+            return extensionCache.Single(extension => extension.Key == extensionName).Value;
         }
 
         private static IEnumerable<Assembly> LoadAssemblies()
