@@ -58,7 +58,6 @@
     <Compile Include="Forms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IImageUploader.cs" />
     <Compile Include="ImgurClient.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
