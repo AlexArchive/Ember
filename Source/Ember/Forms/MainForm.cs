@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Media;
 using System.Windows.Forms;
 using Ember.Extension;
@@ -21,6 +22,30 @@ namespace Ember.Forms
         {
             InitializeComponent();
             InitializeHotkeyBinder();
+
+            if (extensionBootstrap.DoesExtensionExist(Settings.Default.Host) == false)
+            {
+                var fallbackHost = extensionBootstrap.ExtensionCache.First().Key;
+
+                ShowBalloonTip(
+                    string.Format("Ember could not resolve the {0} extension. As such, Ember will default to {1} for your default image host.", Settings.Default.Host, fallbackHost),
+                    "Whops",
+                    ToolTipIcon.Warning);
+
+                Settings.Default.Host = fallbackHost;
+                Settings.Default.Save();
+            }
+        }
+
+        private void ShowBalloonTip(
+            string message,
+            string title = "",
+            ToolTipIcon icon = ToolTipIcon.None)
+        {
+            notifyIcon.BalloonTipIcon = icon;
+            notifyIcon.BalloonTipText = message;
+            notifyIcon.BalloonTipTitle = title;
+            notifyIcon.ShowBalloonTip(1000);
         }
 
         private void InitializeHotkeyBinder()
