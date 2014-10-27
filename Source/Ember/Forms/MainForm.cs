@@ -5,6 +5,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Media;
+using System.Net.Http;
 using System.Windows.Forms;
 using Ember.Extension;
 using Ember.Properties;
@@ -92,17 +93,27 @@ namespace Ember.Forms
 
             if (Settings.Default.UploadImage)
             {
-                var screenshotBinary = ConvertToByteArray(screenshot, Settings.Default.UploadFormat);
-                var uploader = extensionBootstrap.ResolveExtension(Settings.Default.Host);
-                var imageLink = await uploader.UploadImageAsync(screenshotBinary);
+                try
+                {
+                    var screenshotBinary = ConvertToByteArray(screenshot, Settings.Default.UploadFormat);
+                    var uploader = extensionBootstrap.ResolveExtension(Settings.Default.Host);
 
-                if (Settings.Default.OnUploadCopyLinkToClipboard)
-                {
-                    Clipboard.SetText(imageLink);
+                    var imageLink = await uploader.UploadImageAsync(screenshotBinary);
+                    if (Settings.Default.OnUploadCopyLinkToClipboard)
+                    {
+                        Clipboard.SetText(imageLink);
+                    }
+                    else if (Settings.Default.OnUploadOpenImageInBrowser)
+                    {
+                        Process.Start(imageLink);
+                    }
                 }
-                else if (Settings.Default.OnUploadOpenImageInBrowser)
+                catch (HttpRequestException)
                 {
-                    Process.Start(imageLink);
+                    ShowBalloonTip(
+                        string.Format("Ember failed to upload your image to {0}. It could be that {0} is temporarily offline. You should try again in a few moments.", Settings.Default.Host),
+                        "Whops",
+                        ToolTipIcon.Error);
                 }
             }
 
