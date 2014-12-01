@@ -38,7 +38,7 @@ namespace Ember.Extension
             return ExtensionCache.SingleOrDefault(extension => extension.Key == extensionName).Value;
         }
         
-        public bool DoesExtensionExist(string extensionName)
+        public bool ExtensionExists(string extensionName)
         {
             return ResolveExtension(extensionName) != null;
         }

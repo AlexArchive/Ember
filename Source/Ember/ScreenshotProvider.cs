@@ -8,8 +8,8 @@ namespace Ember
     {
         public static Bitmap TakeScreenshot(Rectangle area)
         {
-            // Use the Windows API here instead of the equivalent managed API as the managed 
-            // equivilant has a number of problems.
+            // Use the Windows API here instead of the managed equivalent because the
+            // managed equivalent has a number of bugs.
 
             IntPtr handleDesktopWindow = NativeMethods.GetDesktopWindow();
             IntPtr handleSource = NativeMethods.GetWindowDC(handleDesktopWindow);
@@ -17,15 +17,24 @@ namespace Ember
             IntPtr handleBitmap = NativeMethods.CreateCompatibleBitmap(handleSource, area.Width, area.Height);
             IntPtr handleOldBitmap = NativeMethods.SelectObject(handleDestination, handleBitmap);
 
-            NativeMethods.BitBlt(handleDestination, 0, 0, area.Width, area.Height, handleSource, area.X, area.Y, CopyPixelOperation.SourceCopy | CopyPixelOperation.CaptureBlt);
+            NativeMethods.BitBlt(
+                handleDestination,
+                0,
+                0,
+                area.Width,
+                area.Height,
+                handleSource,
+                area.X,
+                area.Y,
+                CopyPixelOperation.SourceCopy | CopyPixelOperation.CaptureBlt);
 
-            Bitmap desktopCapture = Image.FromHbitmap(handleBitmap);
+            Bitmap screenshot = Image.FromHbitmap(handleBitmap);
             NativeMethods.SelectObject(handleDestination, handleOldBitmap);
             NativeMethods.DeleteObject(handleBitmap);
             NativeMethods.DeleteDC(handleDestination);
             NativeMethods.ReleaseDC(handleDesktopWindow, handleSource);
 
-            return desktopCapture;
+            return screenshot;
         }
     }
 }

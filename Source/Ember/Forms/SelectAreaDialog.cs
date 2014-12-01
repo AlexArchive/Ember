@@ -11,8 +11,8 @@ namespace Ember.Forms
         private Point startLocation;
         private bool shouldPaint;
 
-        // These objects are declared as the class level to avoid the cost of instantiation in the 
-        // Paint method.
+        // These resources are instantiated as the class-level to avoid the cost of 
+        // instantiation in the paint-inducing methods.
         private readonly Brush fillBrush = new SolidBrush(Color.FromArgb(50, 30, 130, 255));
         private readonly Pen borderPen = new Pen(Color.FromArgb(50, 204, 229, 255));
 

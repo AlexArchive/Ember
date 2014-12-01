@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Ember.Extension;
+using Ember.Properties;
+using Ember.Windows;
+using Shortcut;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -7,34 +11,44 @@ using System.Linq;
 using System.Media;
 using System.Net.Http;
 using System.Windows.Forms;
-using Ember.Extension;
-using Ember.Properties;
-using Ember.Windows;
-using Shortcut;
 
 namespace Ember.Forms
 {
     public partial class MainForm : Form
     {
-        private readonly HotkeyBinder binder = new HotkeyBinder();
+        private readonly HotkeyBinder hotkeyBinder = new HotkeyBinder();
         private readonly ExtensionBootstrap extensionBootstrap = new ExtensionBootstrap();
 
         public MainForm()
         {
             InitializeComponent();
             InitializeHotkeyBinder();
+            InitializeExtensions();
+        }
 
-            if (extensionBootstrap.DoesExtensionExist(Settings.Default.Host) == false)
+        private void InitializeHotkeyBinder()
+        {
+            hotkeyBinder.Bind(Settings.Default.CaptureAreaHotkey).To(CaptureArea);
+            hotkeyBinder.Bind(Settings.Default.CaptureFullscreenHotkey).To(CaptureFullscreen);
+            hotkeyBinder.Bind(Settings.Default.CaptureActiveWindowHotkey).To(CaptureActiveWindow);
+        }
+
+        private void InitializeExtensions()
+        {
+            if (!extensionBootstrap.ExtensionExists(
+                extensionName: Settings.Default.Host))
             {
-                var fallbackHost = extensionBootstrap.ExtensionCache.First().Key;
-
-                ShowBalloonTip(
-                    string.Format("Ember could not resolve the {0} extension. As such, Ember will default to {1} for your default image host.", Settings.Default.Host, fallbackHost),
-                    "Whops",
-                    ToolTipIcon.Warning);
+                string fallbackHost = extensionBootstrap.ExtensionCache.First().Key;
 
                 Settings.Default.Host = fallbackHost;
                 Settings.Default.Save();
+
+                ShowBalloonTip(
+                    string.Format(
+                        "Ember could not resolve the {0} extension. Ember will default to {1} for your default image host.",
+                        Settings.Default.Host, fallbackHost),
+                    "Whops",
+                    ToolTipIcon.Warning);
             }
         }
 
@@ -49,23 +63,20 @@ namespace Ember.Forms
             notifyIcon.ShowBalloonTip(1000);
         }
 
-        private void InitializeHotkeyBinder()
+        protected override void SetVisibleCore(bool value)
         {
-            binder.Bind(Settings.Default.CaptureAreaHotkey).To(CaptureArea);
-            binder.Bind(Settings.Default.CaptureFullscreenHotkey).To(CaptureFullscreen);
-            binder.Bind(Settings.Default.CaptureActiveWindowHotkey).To(CaptureActiveWindow);
+            base.SetVisibleCore(false);
         }
 
         private void CaptureArea()
         {
-            var dialog = new SelectAreaDialog();
-
-            if (dialog.ShowDialog() == DialogResult.OK)
+            using (var dialog = new SelectAreaDialog())
             {
-                Capture(dialog.SelectedArea);
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    Capture(dialog.SelectedArea);
+                }
             }
-
-            dialog.Dispose();
         }
 
         private void CaptureFullscreen()
@@ -75,16 +86,16 @@ namespace Ember.Forms
 
         private void CaptureActiveWindow()
         {
-            var handle = NativeMethods.GetForegroundWindow();
-            NativeRectangle rectangle;
-            NativeMethods.GetWindowRect(handle, out rectangle);
-            var area = rectangle.ToRectangle();
+            IntPtr winHandle = NativeMethods.GetForegroundWindow();
+            NativeRectangle winRectangle;
+            NativeMethods.GetWindowRect(winHandle, out winRectangle);
+            Rectangle area = winRectangle.ToRectangle();
             Capture(area);
         }
 
-        private new async void Capture(Rectangle area)
+        private async void Capture(Rectangle area)
         {
-            var screenshot = ScreenshotProvider.TakeScreenshot(area);
+            Bitmap screenshot = ScreenshotProvider.TakeScreenshot(area);
 
             if (Settings.Default.EnableSoundEffect)
             {
@@ -95,10 +106,10 @@ namespace Ember.Forms
             {
                 try
                 {
-                    var screenshotBinary = ConvertToByteArray(screenshot, Settings.Default.UploadFormat);
-                    var uploader = extensionBootstrap.ResolveExtension(Settings.Default.Host);
+                    byte[] screenshotBinary = SerializeScreenshot(screenshot, Settings.Default.UploadFormat);
+                    IImageUploader uploader = extensionBootstrap.ResolveExtension(Settings.Default.Host);
+                    string imageLink = await uploader.UploadImageAsync(screenshotBinary);
 
-                    var imageLink = await uploader.UploadImageAsync(screenshotBinary);
                     if (Settings.Default.OnUploadCopyLinkToClipboard)
                     {
                         Clipboard.SetText(imageLink);
@@ -111,7 +122,9 @@ namespace Ember.Forms
                 catch (HttpRequestException)
                 {
                     ShowBalloonTip(
-                        string.Format("Ember failed to upload your image to {0}. It could be that {0} is temporarily offline. You should try again in a few moments.", Settings.Default.Host),
+                        string.Format(
+                            "Ember failed to upload your image to {0}. It could be that {0} is temporarily offline. You should try again in a few moments.",
+                            Settings.Default.Host),
                         "Whops",
                         ToolTipIcon.Error);
                 }
@@ -119,12 +132,10 @@ namespace Ember.Forms
 
             if (Settings.Default.SaveImage)
             {
-                var directory = Settings.Default.SaveDirectory;
-
                 for (int number = 0; ; number++)
                 {
-                    var name = string.Concat("screenshot ", number, ".png");
-                    var path = Path.Combine(directory, name);
+                    string name = string.Concat("screenshot ", number, ".png");
+                    string path = Path.Combine(Settings.Default.SaveDirectory, name);
 
                     if (File.Exists(path) == false)
                     {
@@ -135,31 +146,26 @@ namespace Ember.Forms
             }
         }
 
-        public static byte[] ConvertToByteArray(Image image, ImageFormat format)
+        public static byte[] SerializeScreenshot(Image screenshot, ImageFormat format)
         {
-            using (var memoryStream = new MemoryStream())
+            using (var stream = new MemoryStream())
             {
-                image.Save(memoryStream, format);
-                return memoryStream.ToArray();
+                screenshot.Save(stream, format);
+                return stream.ToArray();
             }
         }
 
         public static void PlaySound(Stream soundStream)
         {
-            using (var soundPlayer = new SoundPlayer(soundStream))
-                soundPlayer.Play();
-        }
-
-        protected override void SetVisibleCore(bool value)
-        {
-            base.SetVisibleCore(false);
+            using (var player = new SoundPlayer(soundStream))
+                player.Play();
         }
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            binder.Unbind(Settings.Default.CaptureAreaHotkey);
-            binder.Unbind(Settings.Default.CaptureFullscreenHotkey);
-            binder.Unbind(Settings.Default.CaptureActiveWindowHotkey);
+            hotkeyBinder.Unbind(Settings.Default.CaptureAreaHotkey);
+            hotkeyBinder.Unbind(Settings.Default.CaptureFullscreenHotkey);
+            hotkeyBinder.Unbind(Settings.Default.CaptureActiveWindowHotkey);
 
             var dialog = new SettingsForm();
             dialog.ShowDialog();
