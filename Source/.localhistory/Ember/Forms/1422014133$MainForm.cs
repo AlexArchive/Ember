@@ -10,7 +10,6 @@ using System.IO;
 using System.Linq;
 using System.Media;
 using System.Net.Http;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Ember.Forms
@@ -96,14 +95,13 @@ namespace Ember.Forms
 
         private async void Capture(Rectangle area)
         {
-            await SetCaptureDelay();
             Bitmap screenshot = ScreenshotProvider.TakeScreenshot(area);
 
             if (Settings.Default.EnableSoundEffect)
             {
                 PlaySound(Resources.ShutterSound);
             }
-            
+
             if (Settings.Default.UploadImage)
             {
                 try
@@ -134,7 +132,7 @@ namespace Ember.Forms
 
             if (Settings.Default.SaveImage)
             {
-                for (int number = 0;; number++)
+                for (int number = 0; ; number++)
                 {
                     string name = string.Concat("screenshot ", number, ".png");
                     string path = Path.Combine(Settings.Default.SaveDirectory, name);
@@ -148,13 +146,9 @@ namespace Ember.Forms
             }
         }
 
-        private async Task SetCaptureDelay()
+        private static SetCaptureDelay()
         {
-            int defaultTime = 0;
-            if (int.TryParse(Settings.Default.CaptureDelayTime, out defaultTime))
-            {
-                await Task.Delay(defaultTime);
-            }
+            
         }
 
         public static byte[] SerializeScreenshot(Image screenshot, ImageFormat format)

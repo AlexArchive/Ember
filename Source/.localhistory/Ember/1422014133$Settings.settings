@@ -38,7 +38,7 @@
     <Setting Name="Host" Type="System.String" Scope="User">
       <Value Profile="(Default)">Imgur</Value>
     </Setting>
-    <Setting Name="CaptureDelayTime" Type="System.String" Scope="User">
+    <Setting Name="CaptureDelayTime" Type="System.Integer" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>

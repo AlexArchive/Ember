@@ -30,7 +30,6 @@ namespace Ember.Forms
             textBoxSaveDirectory.Text               = Settings.Default.SaveDirectory;
             comboBoxHost.DataSource                 = extensionBootstrap.ExtensionNames;
             comboBoxHost.SelectedItem               = Settings.Default.Host;
-            textBoxCaptureDelayInput.Text           = Settings.Default.CaptureDelayTime;
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -47,7 +46,6 @@ namespace Ember.Forms
             Settings.Default.SaveFormat                  = Convert(comboBoxSaveFormat.SelectedItem);
             Settings.Default.SaveDirectory               = textBoxSaveDirectory.Text;
             Settings.Default.Host                        = comboBoxHost.SelectedItem.ToString();
-            Settings.Default.CaptureDelayTime            = textBoxCaptureDelayInput.Text;
 
             Install();
 
