@@ -103,7 +103,7 @@ namespace Ember.Forms
             {
                 PlaySound(Resources.ShutterSound);
             }
-            
+
             if (Settings.Default.UploadImage)
             {
                 try
@@ -134,7 +134,7 @@ namespace Ember.Forms
 
             if (Settings.Default.SaveImage)
             {
-                for (int number = 0;; number++)
+                for (int number = 0; ; number++)
                 {
                     string name = string.Concat("screenshot ", number, ".png");
                     string path = Path.Combine(Settings.Default.SaveDirectory, name);

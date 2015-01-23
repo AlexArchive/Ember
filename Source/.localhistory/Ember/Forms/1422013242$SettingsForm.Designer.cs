@@ -42,8 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.hotkeyTextBoxCaptureArea = new Shortcut.Forms.HotkeyTextBox();
             this.tabPageHosting = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBoxHost = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxUploadFormat = new System.Windows.Forms.ComboBox();
             this.radioButtonOpenImageInBrowser = new System.Windows.Forms.RadioButton();
@@ -56,8 +54,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxSaveFormat = new System.Windows.Forms.ComboBox();
             this.checkBoxSaveImage = new System.Windows.Forms.CheckBox();
-            this.textBoxCaptureDelayInput = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBoxHost = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -89,8 +87,6 @@
             // 
             // tabPageGeneral
             // 
-            this.tabPageGeneral.Controls.Add(this.label8);
-            this.tabPageGeneral.Controls.Add(this.textBoxCaptureDelayInput);
             this.tabPageGeneral.Controls.Add(this.checkBoxStartWithWindows);
             this.tabPageGeneral.Controls.Add(this.checkBoxEnableSoundEffect);
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 22);
@@ -211,28 +207,6 @@
             this.tabPageHosting.TabIndex = 2;
             this.tabPageHosting.Text = "   HOSTING    ";
             this.tabPageHosting.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 97);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 13);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Host:";
-            // 
-            // comboBoxHost
-            // 
-            this.comboBoxHost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHost.FormattingEnabled = true;
-            this.comboBoxHost.Items.AddRange(new object[] {
-            "Gif",
-            "Jpeg",
-            "Png"});
-            this.comboBoxHost.Location = new System.Drawing.Point(64, 94);
-            this.comboBoxHost.Name = "comboBoxHost";
-            this.comboBoxHost.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxHost.TabIndex = 7;
             // 
             // label4
             // 
@@ -366,24 +340,27 @@
             this.checkBoxSaveImage.Text = "Save image";
             this.checkBoxSaveImage.UseVisualStyleBackColor = true;
             // 
-            // textBoxCaptureDelayInput
+            // label7
             // 
-            this.textBoxCaptureDelayInput.BackColor = System.Drawing.Color.White;
-            this.textBoxCaptureDelayInput.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.textBoxCaptureDelayInput.Location = new System.Drawing.Point(288, 38);
-            this.textBoxCaptureDelayInput.Name = "textBoxCaptureDelayInput";
-            this.textBoxCaptureDelayInput.Size = new System.Drawing.Size(53, 25);
-            this.textBoxCaptureDelayInput.TabIndex = 10;
-            this.textBoxCaptureDelayInput.Text = "0";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 97);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Host:";
             // 
-            // label8
+            // comboBoxHost
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(241, 17);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(151, 13);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Capture Delay (milliseconds)";
+            this.comboBoxHost.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHost.FormattingEnabled = true;
+            this.comboBoxHost.Items.AddRange(new object[] {
+            "Gif",
+            "Jpeg",
+            "Png"});
+            this.comboBoxHost.Location = new System.Drawing.Point(64, 94);
+            this.comboBoxHost.Name = "comboBoxHost";
+            this.comboBoxHost.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxHost.TabIndex = 7;
             // 
             // SettingsForm
             // 
@@ -443,7 +420,5 @@
         private System.Windows.Forms.Button buttonOpenDirectory;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxHost;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBoxCaptureDelayInput;
     }
 }

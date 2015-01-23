@@ -372,6 +372,7 @@
             this.textBoxCaptureDelayInput.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.textBoxCaptureDelayInput.Location = new System.Drawing.Point(288, 38);
             this.textBoxCaptureDelayInput.Name = "textBoxCaptureDelayInput";
+            this.textBoxCaptureDelayInput.ReadOnly = true;
             this.textBoxCaptureDelayInput.Size = new System.Drawing.Size(53, 25);
             this.textBoxCaptureDelayInput.TabIndex = 10;
             this.textBoxCaptureDelayInput.Text = "0";
