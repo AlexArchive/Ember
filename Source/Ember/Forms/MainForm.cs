@@ -132,6 +132,11 @@ namespace Ember.Forms
 
             if (Settings.Default.SaveImage)
             {
+                if (!Directory.Exists(Settings.Default.SaveDirectory))
+                {
+                    Directory.CreateDirectory(Settings.Default.SaveDirectory);
+                }
+
                 for (int number = 0; ; number++)
                 {
                     string name = string.Concat("screenshot ", number, ".png");
