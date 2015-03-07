@@ -167,9 +167,9 @@ namespace Ember.Forms
             hotkeyBinder.Unbind(Settings.Default.CaptureFullscreenHotkey);
             hotkeyBinder.Unbind(Settings.Default.CaptureActiveWindowHotkey);
 
-            var dialog = new SettingsForm();
-            dialog.ShowDialog();
-            dialog.Dispose();
+            var preferencesForm = new PreferencesForm();
+            preferencesForm.ShowDialog();
+            preferencesForm.Dispose();
 
             InitializeHotkeyBinder();
         }

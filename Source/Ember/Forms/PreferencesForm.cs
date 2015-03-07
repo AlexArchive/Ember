@@ -5,11 +5,11 @@ using Ember.Extension;
 
 namespace Ember.Forms
 {
-    public partial class SettingsForm : Form
+    public partial class PreferencesForm : Form
     {
         private readonly ExtensionBootstrap extensionBootstrap = new ExtensionBootstrap();
 
-        public SettingsForm()
+        public PreferencesForm()
         {
             InitializeComponent();
         }
