@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Ember.Forms
 {
-    public sealed partial class SelectScreenshotDialog : Form
+    public sealed partial class SelectAreaDialog : Form
     {
         public Rectangle SelectedArea { get; set; }
         private Point startLocation;
@@ -15,7 +15,7 @@ namespace Ember.Forms
         private readonly Brush fillBrush = new SolidBrush(Color.FromArgb(50, 30, 130, 255));
         private readonly Pen borderPen = new Pen(Color.FromArgb(50, 204, 229, 255));
 
-        public SelectScreenshotDialog(Image screenshot)
+        public SelectAreaDialog(Image screenshot)
         {
             InitializeComponent();
 

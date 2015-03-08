@@ -71,7 +71,7 @@ namespace Ember.Forms
         private void CaptureArea()
         {
             var screenshot = ScreenshotProvider.TakeScreenshot(SystemInformation.VirtualScreen);
-            var dialog = new SelectScreenshotDialog(screenshot);
+            var dialog = new SelectAreaDialog(screenshot);
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 Bitmap croppedScreenshot = screenshot.Clone(
