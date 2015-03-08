@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace Ember.Forms
 {
-    public sealed partial class SelectAreaDialog : Form
+    public sealed partial class SelectScreenshotDialog : Form
     {
-        private Rectangle selectedArea;
-        public Bitmap SelectedScreenBitmap { get; private set; }
+        public Bitmap Screenshot { get; private set; }
 
+        private Rectangle selectedArea;
         private Point startLocation;
         private bool shouldPaint;
 
@@ -17,7 +17,7 @@ namespace Ember.Forms
         private readonly Brush fillBrush = new SolidBrush(Color.FromArgb(50, 30, 130, 255));
         private readonly Pen borderPen = new Pen(Color.FromArgb(50, 204, 229, 255));
 
-        public SelectAreaDialog()
+        public SelectScreenshotDialog()
         {
             InitializeComponent();
 
@@ -56,7 +56,7 @@ namespace Ember.Forms
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            SelectedScreenBitmap = CropBitmap(
+            Screenshot = CropBitmap(
                 (Bitmap)BackgroundImage, 
                 selectedArea.X, 
                 selectedArea.Y, 

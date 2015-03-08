@@ -1,6 +1,6 @@
 ﻿namespace Ember.Forms
 {
-    sealed partial class SelectAreaDialog
+    sealed partial class SelectScreenshotDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Cross;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "SelectAreaDialog";
+            this.Name = "SelectScreenshotDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "SelectRegionDialog";
