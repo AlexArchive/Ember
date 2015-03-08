@@ -65,11 +65,11 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SelectAreaDialog.cs">
+    <Compile Include="Forms\SelectScreenshotDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SelectAreaDialog.Designer.cs">
-      <DependentUpon>SelectAreaDialog.cs</DependentUpon>
+    <Compile Include="Forms\SelectScreenshotDialog.Designer.cs">
+      <DependentUpon>SelectScreenshotDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Installer.cs" />
     <Compile Include="Program.cs" />
@@ -85,8 +85,8 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SelectAreaDialog.resx">
-      <DependentUpon>SelectAreaDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SelectScreenshotDialog.resx">
+      <DependentUpon>SelectScreenshotDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PreferencesForm.resx">
       <DependentUpon>PreferencesForm.cs</DependentUpon>

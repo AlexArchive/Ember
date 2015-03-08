@@ -70,13 +70,12 @@ namespace Ember.Forms
 
         private void CaptureArea()
         {
-            using (var dialog = new SelectScreenshotDialog())
+            var dialog = new SelectScreenshotDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ProcessScreenshot(dialog.Screenshot);
-                }
+                ProcessScreenshot(dialog.Screenshot);
             }
+            dialog.Dispose();
         }
 
         private void CaptureFullscreen()
