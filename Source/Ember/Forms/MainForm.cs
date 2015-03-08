@@ -74,14 +74,15 @@ namespace Ember.Forms
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    Capture(dialog.SelectedArea);
+                    Capture(dialog.SelectedScreenBitmap);
                 }
             }
         }
 
         private void CaptureFullscreen()
         {
-            Capture(SystemInformation.VirtualScreen);
+            Bitmap screenshot = ScreenshotProvider.TakeScreenshot(SystemInformation.VirtualScreen);
+            Capture(screenshot);
         }
 
         private void CaptureActiveWindow()
@@ -90,12 +91,13 @@ namespace Ember.Forms
             NativeRectangle winRectangle;
             NativeMethods.GetWindowRect(winHandle, out winRectangle);
             Rectangle area = winRectangle.ToRectangle();
-            Capture(area);
+
+            Bitmap screenshot = ScreenshotProvider.TakeScreenshot(area);
+            Capture(screenshot);
         }
 
-        private async void Capture(Rectangle area)
+        private async void Capture(Bitmap screenshot)
         {
-            Bitmap screenshot = ScreenshotProvider.TakeScreenshot(area);
 
             if (Settings.Default.EnableSoundEffect)
             {

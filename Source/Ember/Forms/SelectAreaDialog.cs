@@ -6,7 +6,8 @@ namespace Ember.Forms
 {
     public sealed partial class SelectAreaDialog : Form
     {
-        public Rectangle SelectedArea { get; private set; }
+        private Rectangle selectedArea;
+        public Bitmap SelectedScreenBitmap { get; private set; }
 
         private Point startLocation;
         private bool shouldPaint;
@@ -37,7 +38,7 @@ namespace Ember.Forms
         {
             if (shouldPaint)
             {
-                SelectedArea = new Rectangle(
+                selectedArea = new Rectangle(
                     Math.Min(startLocation.X, e.X),
                     Math.Min(startLocation.Y, e.Y),
                     Math.Abs(startLocation.X - e.X),
@@ -49,14 +50,20 @@ namespace Ember.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(fillBrush, SelectedArea);
-            e.Graphics.DrawRectangle(borderPen, SelectedArea);
+            e.Graphics.FillRectangle(fillBrush, selectedArea);
+            e.Graphics.DrawRectangle(borderPen, selectedArea);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
+            SelectedScreenBitmap = CropBitmap(
+                (Bitmap)BackgroundImage, 
+                selectedArea.X, 
+                selectedArea.Y, 
+                selectedArea.Width,
+                selectedArea.Height);
+
             DialogResult = DialogResult.OK;
-            SelectedArea = new Rectangle(PointToScreen(SelectedArea.Location), SelectedArea.Size);
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
@@ -65,6 +72,14 @@ namespace Ember.Forms
             {
                 DialogResult = DialogResult.Cancel;
             }
+        }
+        
+        // temporary
+        public Bitmap CropBitmap(Bitmap bitmap, int cropX, int cropY, int cropWidth, int cropHeight)
+        {
+            Rectangle rect = new Rectangle(cropX, cropY, cropWidth, cropHeight);
+            Bitmap cropped = bitmap.Clone(rect, bitmap.PixelFormat);
+            return cropped;
         }
     }
 }
