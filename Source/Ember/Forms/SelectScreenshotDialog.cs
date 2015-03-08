@@ -6,9 +6,7 @@ namespace Ember.Forms
 {
     public sealed partial class SelectScreenshotDialog : Form
     {
-        public Bitmap Screenshot { get; private set; }
-
-        private Rectangle selectedArea;
+        public Rectangle SelectedArea { get; set; }
         private Point startLocation;
         private bool shouldPaint;
 
@@ -17,12 +15,12 @@ namespace Ember.Forms
         private readonly Brush fillBrush = new SolidBrush(Color.FromArgb(50, 30, 130, 255));
         private readonly Pen borderPen = new Pen(Color.FromArgb(50, 204, 229, 255));
 
-        public SelectScreenshotDialog()
+        public SelectScreenshotDialog(Image screenshot)
         {
             InitializeComponent();
 
             Bounds = SystemInformation.VirtualScreen;
-            BackgroundImage = ScreenshotProvider.TakeScreenshot(Bounds);
+            BackgroundImage = screenshot;
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -38,7 +36,7 @@ namespace Ember.Forms
         {
             if (shouldPaint)
             {
-                selectedArea = new Rectangle(
+                SelectedArea = new Rectangle(
                     Math.Min(startLocation.X, e.X),
                     Math.Min(startLocation.Y, e.Y),
                     Math.Abs(startLocation.X - e.X),
@@ -50,16 +48,12 @@ namespace Ember.Forms
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(fillBrush, selectedArea);
-            e.Graphics.DrawRectangle(borderPen, selectedArea);
+            e.Graphics.FillRectangle(fillBrush, SelectedArea);
+            e.Graphics.DrawRectangle(borderPen, SelectedArea);
         }
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            Screenshot = ((Bitmap)BackgroundImage).Clone(
-                selectedArea,
-                BackgroundImage.PixelFormat);
-
             DialogResult = DialogResult.OK;
         }
 
