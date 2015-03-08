@@ -13,7 +13,7 @@ namespace Ember.Forms
         private bool shouldPaint;
 
         // These resources are instantiated as the class-level to avoid the cost of 
-        // instantiation in the paint-inducing methods.
+        // instantiation in paint-inducing methods.
         private readonly Brush fillBrush = new SolidBrush(Color.FromArgb(50, 30, 130, 255));
         private readonly Pen borderPen = new Pen(Color.FromArgb(50, 204, 229, 255));
 
@@ -56,12 +56,9 @@ namespace Ember.Forms
 
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            Screenshot = CropBitmap(
-                (Bitmap)BackgroundImage, 
-                selectedArea.X, 
-                selectedArea.Y, 
-                selectedArea.Width,
-                selectedArea.Height);
+            Screenshot = ((Bitmap)BackgroundImage).Clone(
+                selectedArea,
+                BackgroundImage.PixelFormat);
 
             DialogResult = DialogResult.OK;
         }
@@ -72,14 +69,6 @@ namespace Ember.Forms
             {
                 DialogResult = DialogResult.Cancel;
             }
-        }
-        
-        // temporary
-        public Bitmap CropBitmap(Bitmap bitmap, int cropX, int cropY, int cropWidth, int cropHeight)
-        {
-            Rectangle rect = new Rectangle(cropX, cropY, cropWidth, cropHeight);
-            Bitmap cropped = bitmap.Clone(rect, bitmap.PixelFormat);
-            return cropped;
         }
     }
 }
